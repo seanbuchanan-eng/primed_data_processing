@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "primed_data_processing"
 version = "0.0.0"
-author = [{name="Sean Buchanan", email="seanbuchanan55@hotmail.com"},]
+authors = [{name="Sean Buchanan", email="seanbuchanan55@hotmail.com"},]
 description = "A package for processing data produced at UVic's PRIMED Lab"
 readme = "README.md"
 requires-python = ">=3.10"

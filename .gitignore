@@ -1,3 +1,5 @@
 __pycache__/
 *.pyc
 junk/
+dist/
+primed_data_processing.egg-info/
