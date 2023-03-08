@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "primed_data_processing"
+version = "0.0.0"
+author = [{name="Sean Buchanan", email="seanbuchanan55@hotmail.com"},]
+description = "A package for processing data produced at UVic's PRIMED Lab"
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows :: Windows 11"
+]
+dependencies = [
+    "numpy>=1.24.1",
+    "pandas>=1.5.3",
+    "openpyxl>=3.1.1",
+    "matplotlib>=3.6.3",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/seanbuchanan-eng/primed_data_processing"
