@@ -7,50 +7,57 @@ import pandas as pd
 
 class EisSweep:
     """
-    Represents a single EIS sweep. Made specifically to represent EIS from 
-    the B6 batch of data at PRIMED.
+    Represents a single EIS sweep.
+
+    An EIS sweep is a sweep from some start frequency to some end frequency with a 
+    specified number of data points within each frequency decade. The sweep occurs
+    at a specified SOC.
 
     Attributes
     ----------
-    name : str
+    ``name`` \: ``str``
         Name of the eis sweep.
-    soc : float
-        State-of-charge of battery when eis measurement was taken. 0 < soc <=1
-    pt : list
-        Point numbers of the measurements in a Gamry DTA file.
-    time : list
-        Timesteps of the measurements in a Gamry DTA file in seconds.
-    freq : list
-        Frequency of the measurements in a Gamry DTA file in Hz.
-    z_real : list
-        Real portion of the batteries measured impedance frequency response in Ohms.
-    z_imag : list
-        Imaginary portion of the batteries measured impedance frequency response in Ohms.
-    z_sig : list
-        Honestly not sure what this is other than a column in a Gamry DTA file in Volts.
-    z_mod : list
-        Magnitude of the batteries measured impedance frequency response in Ohms.
-    z_phase : list
-        Phase of the batteries measured impedance frequency response in degrees.
-    idc : list
-        Measured DC current in the Gamry DTA file in Amps.
-    vdc : list
-        Measured DC voltage in the Gamry DTA file in Volts.
-    ie_reange : list
+    ``soc`` \: ``float``
+        State-of-charge of battery when eis measurement was taken. 0 <= soc <=1.
+    ``step_index`` \: ``int``
+        Index of the EIS step in the arbin test schedule. Default is 0.
+    ``pt`` \: ``list[int]``
+        Point numbers of the measurements.
+    ``time`` \: ``list[float]``
+        Duration of the measurements in seconds.
+    ``freq`` \: ``list[float]``
+        Frequency of the measurements in Hz.
+    ``z_real`` \: ``list[float]``
+        Real portion of the batteries measured impedance response in Ohms.
+    ``z_imag`` \: ``list[float]``
+        Imaginary portion of the batteries measured impedance response in Ohms.
+    ``z_sig`` \: ``list[float]``
+        Measured in Volts.
+    ``z_mod`` \: ``list[float]``
+        Magnitude of the batteries measured impedance response in Ohms.
+    ``z_phase`` \: ``list[float]``
+        Phase of the batteries measured impedance response in degrees.
+    ``idc`` \: ``list[float]``
+        Measured DC current in Amps.
+    ``vdc`` \: ``list[float]``
+        Measured DC voltage in Volts.
+    ``ie_reange`` \: ``list[int]``
         Not sure. For now it is just a column in the Gamry DTA file.
         
     Methods
     -------
     """
 
-    def __init__(self, name: str, soc: float, step_index: int) -> None:
+    def __init__(self, name: str, soc: float, step_index: int=0) -> None:
         """
         Parameters
         ----------
-        name : str
+        ``name`` \: ``str``
             Name of the EisSweep
-        soc : float
-            State-of-charge of battery when eis measurement was taken. 0 < soc <=1
+        ``soc`` \: ``float``
+            State-of-charge of battery when eis measurement was taken. 0 <= ``soc`` <=1
+        ``step_index`` \: ``int`` optional, default is 0
+            Index of the EIS step in the arbin test schedule.
         """
         self.name = name
         self.soc = soc
@@ -70,20 +77,19 @@ class EisSweep:
         self._data_already_read = False
 
     def __str__(self):
-        pass
+        return f'EisSweep object name: {self.name}, soc: {self.soc}, step_index: {self.step_index}'
 
-    def read_DTA_file(self, file_path) -> None:
+    def read_DTA_file(self, file_path: str) -> None:
         """
-        Read a Gamry DTA output file and store its information.
+        Read a Gamry DTA output file and store its information in this ``EisSweep`` object.
 
         Parameters
         ----------
-        file_path : str
-            Path to the data file.
+        ``file_path`` \: ``str``
+            Absolute path to the Gamry DTA file.
         """
         if self._data_already_read:
-            print('Data has already been read for this object!')
-            return
+            raise ValueError('Data has already been read for this object! Either delete or make a new object.')
 
         with open(file_path) as file:
             read = False
@@ -116,7 +122,7 @@ class EisSweep:
         """
         Returns
         -------
-        numpy array
+        ``numpy.ndarray``
             Nx11 array where the columns are pt, time, freq, zreal, zimag, zsig, zmod,
             zphase, idc, vdc, ierange
         """
@@ -129,7 +135,7 @@ class EisSweep:
         """
         Returns
         -------
-        pandas DataFrame
+        ``pandas.DataFrame``
             Nx11 table where column headers are pt, time, freq, zreal, zimag, zsig,
             zmod, zphase, idc, vdc, ierange
         """
@@ -138,29 +144,39 @@ class EisSweep:
 
 class EisCycle:
     """
-    Represents all of the eis sweeps in a single test cycle.
+    Represents a cycle in a given test where any number of ``EisSweep`` can occur.
+
+    Attributes
+    ----------
+    ``cycle_number`` \: ``int``
+        The cycle number in the test.
+    ``sweeps`` \: ``list[EisSweep]``
+        List of ``EisSweep`` objects that occur in this cycle.
+    ``name`` \: ``str`` optional, default is ``''``
+        Name of the object.
+
+    Methods
+    -------
     """
     
-    def __init__(self, cycle_number, sweeps=[], name=None) -> None:
+    def __init__(self, cycle_number: int, sweeps: list[EisSweep]=[], name='') -> None:
         """
         Parameters
         ----------
-        cycle_number : int
+        ``cycle_number`` : ``int``
             The cycle number in the test.
-        sweeps : list, optional
-            EisSweep objects (default is empty). It is recommended to put them in chronological order.
-        name : str, optional
-            Name of the eis cycle (defaule is None)
+        ``sweeps`` : ``list[EisSweep]`` optional, default is ``[]``
+            List of ``EisSweep`` objects. It is recommended to put them in chronological order.
+        ``name`` : ``str`` optional, default is ``''``
+            Name of the object.
         """
 
         self.cycle_index = cycle_number
         self.sweeps = sweeps
         self.name = name
-        self.soh = None
-        self.battery_temperature = None
 
     def __str__(self) -> str:
-        pass
+        return f'EisCycle name: {self.name}, cycle index: {self.cycle_index}'
 
     def __iter__(self):
         self.iter_index = 0
@@ -179,12 +195,12 @@ class EisCycle:
 
     def add_sweep(self, eis_sweep) -> None:
         """
-        Add an EisSweep object to the cycle.
+        Add an ``EisSweep`` object to the cycle.
 
         Parameters
         ----------
-        eis_sweep : EisSweep
-            EisSweep object to be added to the cycle.
+        ``eis_sweep`` \: ``EisSweep``
+            ``EisSweep`` object to be added to the cycle.
         """
         self.sweeps.append(eis_sweep)
 
@@ -192,11 +208,11 @@ class EisCycle:
         """
         Returns
         -------
-        numpy array
+        ``numpy.ndarray``
             All EisSweeps in the cycle as a m x n x 11 array where m is the number of sweeps, n is the 
             number of measurements, and 11 is the number of columns.
 
-            Can also be seen as an output of m EisSweep.get_data_as_array().
+            Can also be seen as an output of m ``EisSweep.get_data_as_array()``.
         """
         output_list = []
         for eis_sweep in self.sweeps:
@@ -206,26 +222,43 @@ class EisCycle:
 
 class EisCell:
     """
-    Represents all of the the EIS measurements over a single cells lifetime.
+    Represents a cell (battery) in a given test where any number of ``EisCycle`` can occur.
+
+    Attributes
+    ----------
+    ``name`` \: ``str``
+        Name of the cell. Default is ``''``.
+    ``eis_cycles`` \: ``list[EisCycle]``
+        List of ``EisCycle`` objects representing all of the sweeps measured in a given cycle.
+    ``cell_number`` \: ``int``
+        The cell number from the test.
+    ``channel_number`` \: ``int``
+        The channel number from the test.
+
+    Methods
+    -------
     """
 
-    def __init__(self, name, eis_cycles=[], cell_number=None, channel_number=None) -> None:
+    def __init__(self, cell_number, channel_number, name='', eis_cycles=[]) -> None:
         """
         Parameters
         ----------
-        name : str
-            Name of the cell.
+        name : str, optional default is ''.
+            Name of the cell. 
         eis_cycles : list, optional
             EisCycle objects representing all of the sweeps measured in a given cycle 9def.
-        cell_number : int, optional
+        cell_number : int
             The cell number from the test.
-        channel_number : int, optional
+        channel_number : int
             The channel number from the test.
         """
         self.name = name
         self.cycles = eis_cycles
         self.cell_number = cell_number
         self.channel_number = channel_number
+
+    def __str__(self):
+        return f'EisCell name: {self.name}, cell #: {self.cell_number}, channel # {self.channel_number}'
 
     def __iter__(self):
         self.iter_index = 0
@@ -246,8 +279,8 @@ class EisCell:
         """
         Parameters
         ----------
-        eis_cycle : EisCycle
-            EIS cycle to be added to the cell. It's recommended to add them in chronological order.
+        ``eis_cycle`` \: ``EisCycle``
+            ``EisCycle`` to be added to the cell.
         """
         self.cycles.append(eis_cycle)
 
@@ -255,10 +288,10 @@ class EisCell:
         """
         Returns
         -------
-        numpy array
-            All EisCycles that the cell has experienced. Shape is z x m x n x 11 where z is the number
+        ``numpy.ndarray``
+            All ``EisCycles`` in the cell. Shape is z x m x n x 11 where z is the number
             of cycles, m is the number of sweeps, and n is the number of data points in the sweep. 11 is
-            the number of measured parameters in the test.
+            the number of measured parameters in the EIS sweep.
         """
         output_list = []
         for eis_cycle in self.cycles:

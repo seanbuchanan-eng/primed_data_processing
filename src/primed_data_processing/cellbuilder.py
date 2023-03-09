@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import openpyxl
-from .arbin_cycler import ArbinStep, ArbinTestCycle, ArbinCell
+from .arbin_cycler import ArbinStep, ArbinCycle, ArbinCell
 from .gamry_eis import EisSweep, EisCycle, EisCell
 
 class CellBuilder:
@@ -174,7 +174,7 @@ class CellBuilder:
         if CYCLE_INDEX != self.current_cycle_index:
             self.current_step_index = 0
             self.current_cycle_index = CYCLE_INDEX
-            current_cycle = ArbinTestCycle(self.current_cycle_index)
+            current_cycle = ArbinCycle(self.current_cycle_index)
             cell.add_cycle(current_cycle)
             if verbose:
                 print(f'Processing test cycle {self.current_cycle_index}')
@@ -191,7 +191,7 @@ class CellBuilder:
 
     def _fix_temperature_header(self, headers: list[str]) -> list:
         """
-        Fix the temperature headers so that the weird symbols used to make the degree symbol
+        Fix the temperature headers so that the non-ascii symbols used to make the degree symbol
         are removed as they are different for different programs.
 
         Parameters
