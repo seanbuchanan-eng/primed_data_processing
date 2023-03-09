@@ -265,11 +265,3 @@ class EisCell:
             output_list.append(eis_cycle.get_data_as_array())
         
         return np.array(output_list)
-        
-
-if __name__ == '__main__':
-
-    # test get_data_as_array()
-    eis_file_path = 'data_processing/testing_data/B6T10V0_Chan001_Cycle001_Step014.DTA'
-    test_sweep = EisSweep('test_sweep')
-    test_sweep.read_DTA_file(eis_file_path)
