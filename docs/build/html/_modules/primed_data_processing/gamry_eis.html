@@ -1,0 +1,388 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="utf-8"/>
+<title>primed_data_processing.gamry_eis | Primed Data Processing 0.0.0 documentation</title>
+<link href="../../_static/pygments.css" rel="stylesheet"/>
+<link href="../../_static/theme.39dcd091ff2d4f33bf46.css" rel="stylesheet"/>
+<link href="../../search.html" rel="search" title="Search"/>
+<link href="../../genindex.html" rel="index" title="Index"/>
+</head>
+<body class="antialiased text-gray scroll-smooth">
+<div class="min-h-screen xl:h-screen flex flex-col xl:grid xl:grid-layout print:block print:h-auto" data-action="keydown@window-&gt;search#focus " data-controller="sidebar search " id="page">
+<a class="block transition -translate-x-full focus:translate-x-0 opacity-0 focus:opacity-100 text-xl bg-white p-4 z-20 absolute top-0 left-0 h-14" href="#primed-data-processing-gamry-eis" title="Skip navigation links">Skip to content</a>
+<header class="grid-area-header z-10 h-14 fixed w-full top-0 print:hidden">
+<div class="bg-gray-dark shadow-md flex items-center h-full xl:px-2 relative"><div class="flex items-center">
+<button class="xl:hidden h-14 w-14 leading-14 text-gray-100 hover:bg-gray-700 hover:text-brand focus:outline-none focus:bg-gray-700 focus:text-brand" data-action="sidebar#open" data-sidebar-target="hamburger">
+<span class="sr-only">Open navigation menu</span>
+<svg aria-hidden="true" class="fill-current h-8 w-8" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
+</button><a class="hover:bg-gray-700 focus:bg-gray-700 focus:outline-none" href="../../index.html" title="Back to homepage"><span class="hidden lg:inline-block shrink-0 font-medium text-gray-100 mx-5 leading-14 tracking-wider">Primed Data Processing 0.0.0 documentation</span>
+</a></div><div class="flex justify-end items-center flex-1"><form action="../../search.html" class="flex print:hidden justify-between items-center leading-14 md:ml-4 bg-gray-dark text-gray-300 focus-within:bg-gray-50 focus-within:text-gray-800 focus-within:absolute focus-within:inset-x-0 focus-within:top-0 md:focus-within:w-full md:focus-within:static z-10" data-action="click-&gt;search#focusSearchInput" id="searchbox" method="get">
+<button aria-label="Get search results" class="text-inherit h-14 w-14" tabindex="-1">
+<svg aria-hidden="true" class="fill-current stroke-current h-8 w-8" stroke-width="0.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
+</button>
+<input aria-label="Search the docs" class="pr-2 bg-transparent text-inherit focus:outline-none w-0 md:w-auto focus:w-full transition-all duration-100" data-search-target="searchInput" id="search-input" name="q" placeholder="Search the docs" type="search"/>
+</form></div>
+</div>
+</header>
+<aside class="grid-area-sidebar h-full fixed pt-14 xl:relative inset-y-0 left-0 z-20 xl:z-0 print:hidden overflow-y-auto transition-all transform transform-gpu -translate-x-full opacity-0 duration-300 xl:translate-x-0 xl:opacity-100" data-sidebar-target="sidebar">
+<nav class="h-full overflow-y-auto bg-white text-gray-600 pt-8 flex flex-col" role="navigation">
+<div class="nav-toc flex-1 pl-6"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><div class="nav-link"><svg class="expand" data-action="click-&gt;sidebar#expand keydown-&gt;sidebar#expandKeyPressed" tabindex="0" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../usage.html">Usage</a></div><ul>
+<li class="toctree-l2"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../usage.html#installation">Installation</a></div></li>
+</ul>
+</li>
+<li class="toctree-l1"><div class="nav-link"><svg class="expand" data-action="click-&gt;sidebar#expand keydown-&gt;sidebar#expandKeyPressed" tabindex="0" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html">API Documentation</a></div><ul>
+<li class="toctree-l2"><div class="nav-link"><svg class="expand" data-action="click-&gt;sidebar#expand keydown-&gt;sidebar#expandKeyPressed" tabindex="0" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#module-primed_data_processing.arbin_cycler">Working With Cycler Data</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#primed_data_processing.arbin_cycler.ArbinCell"><code class="docutils literal notranslate">ArbinCell</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#primed_data_processing.arbin_cycler.ArbinCycle"><code class="docutils literal notranslate">ArbinCycle</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#primed_data_processing.arbin_cycler.ArbinStep"><code class="docutils literal notranslate">ArbinStep</code></a></div></li>
+</ul>
+</li>
+<li class="toctree-l2"><div class="nav-link"><svg class="expand" data-action="click-&gt;sidebar#expand keydown-&gt;sidebar#expandKeyPressed" tabindex="0" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#module-primed_data_processing.gamry_eis">Working With EIS Data</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#primed_data_processing.gamry_eis.EisCell"><code class="docutils literal notranslate">EisCell</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#primed_data_processing.gamry_eis.EisCycle"><code class="docutils literal notranslate">EisCycle</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#primed_data_processing.gamry_eis.EisSweep"><code class="docutils literal notranslate">EisSweep</code></a></div></li>
+</ul>
+</li>
+<li class="toctree-l2"><div class="nav-link"><svg class="expand" data-action="click-&gt;sidebar#expand keydown-&gt;sidebar#expandKeyPressed" tabindex="0" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#module-primed_data_processing.cellbuilder">Data Downloader</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#primed_data_processing.cellbuilder.CellBuilder"><code class="docutils literal notranslate">CellBuilder</code></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<button class="text-4xl text-gray-800 p-4 bottom-0 hover:text-brand xl:hidden focus:text-brand self-center" data-action="sidebar#close" title="Close navigation menu">
+<span class="sr-only">Close navigation menu</span>
+<svg aria-hidden="true" class="fill-current stroke-current h-6 w-6" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</aside>
+<main class="px-4 pt-14 xl:ml-fluid grid-area-main overflow-y-auto flex flex-col flex-1 h-full mx-0 md:mx-auto xl:mr-0"><nav aria-label="breadcrumbs" class="print:hidden mt-12 text-sm text-gray-light" role="navigation">
+<a class="text-gray-light text-sm hover:text-gray-dark font-medium focus:text-gray-dark" href="../../index.html">Primed Data Processing 0.0.0 documentation</a>
+<span class="mr-1">/</span><a class="text-gray-light text-sm hover:text-gray-dark" href="../index.html">Module code</a>
+<span class="mr-1">/</span><span aria-current="page">primed_data_processing.gamry_eis</span>
+</nav>
+<article class="flex-1" role="main">
+<h1>Source code for primed_data_processing.gamry_eis</h1><div class="highlight"><pre>
+<code><span class="c1"># Sean Buchanan</span>
+<span class="c1"># This module contains classes that can be used to process and store EIS data</span>
+<span class="c1"># for ease of use.</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<div class="viewcode-block" id="EisSweep"><a class="viewcode-back" href="../../api.html#primed_data_processing.gamry_eis.EisSweep">[docs]</a><span class="k">class</span> <span class="nc">EisSweep</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Represents a single EIS sweep.</span>
+
+<span class="sd">    An EIS sweep is a sweep from some start frequency to some end frequency with a </span>
+<span class="sd">    specified number of data points within each frequency decade. The sweep occurs</span>
+<span class="sd">    at a specified SOC.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ``name`` \: ``str``</span>
+<span class="sd">        Name of the eis sweep.</span>
+<span class="sd">    ``soc`` \: ``float``</span>
+<span class="sd">        State-of-charge of battery when eis measurement was taken. 0 &lt;= soc &lt;=1.</span>
+<span class="sd">    ``step_index`` \: ``int``</span>
+<span class="sd">        Index of the EIS step in the arbin test schedule. Default is 0.</span>
+<span class="sd">    ``pt`` \: ``list[int]``</span>
+<span class="sd">        Point numbers of the measurements.</span>
+<span class="sd">    ``time`` \: ``list[float]``</span>
+<span class="sd">        Duration of the measurements in seconds.</span>
+<span class="sd">    ``freq`` \: ``list[float]``</span>
+<span class="sd">        Frequency of the measurements in Hz.</span>
+<span class="sd">    ``z_real`` \: ``list[float]``</span>
+<span class="sd">        Real portion of the batteries measured impedance response in Ohms.</span>
+<span class="sd">    ``z_imag`` \: ``list[float]``</span>
+<span class="sd">        Imaginary portion of the batteries measured impedance response in Ohms.</span>
+<span class="sd">    ``z_sig`` \: ``list[float]``</span>
+<span class="sd">        Measured in Volts.</span>
+<span class="sd">    ``z_mod`` \: ``list[float]``</span>
+<span class="sd">        Magnitude of the batteries measured impedance response in Ohms.</span>
+<span class="sd">    ``z_phase`` \: ``list[float]``</span>
+<span class="sd">        Phase of the batteries measured impedance response in degrees.</span>
+<span class="sd">    ``idc`` \: ``list[float]``</span>
+<span class="sd">        Measured DC current in Amps.</span>
+<span class="sd">    ``vdc`` \: ``list[float]``</span>
+<span class="sd">        Measured DC voltage in Volts.</span>
+<span class="sd">    ``ie_reange`` \: ``list[int]``</span>
+<span class="sd">        Not sure. For now it is just a column in the Gamry DTA file.</span>
+<span class="sd">        </span>
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">    """</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">soc</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">step_index</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        ``name`` \: ``str``</span>
+<span class="sd">            Name of the EisSweep</span>
+<span class="sd">        ``soc`` \: ``float``</span>
+<span class="sd">            State-of-charge of battery when eis measurement was taken. 0 &lt;= ``soc`` &lt;=1</span>
+<span class="sd">        ``step_index`` \: ``int`` optional, default is 0</span>
+<span class="sd">            Index of the EIS step in the arbin test schedule.</span>
+<span class="sd">        """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">soc</span> <span class="o">=</span> <span class="n">soc</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">step_index</span> <span class="o">=</span> <span class="n">step_index</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pt</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">freq</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">z_real</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">z_imag</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">z_sig</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">z_mod</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">z_phase</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idc</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vdc</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ie_range</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_headers</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data_already_read</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s1">'EisSweep object name: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">, soc: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">soc</span><span class="si">}</span><span class="s1">, step_index: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">step_index</span><span class="si">}</span><span class="s1">'</span>
+
+<div class="viewcode-block" id="EisSweep.read_DTA_file"><a class="viewcode-back" href="../../api.html#primed_data_processing.gamry_eis.EisSweep.read_DTA_file">[docs]</a>    <span class="k">def</span> <span class="nf">read_DTA_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Read a Gamry DTA output file and store its information in this ``EisSweep`` object.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        ``file_path`` \: ``str``</span>
+<span class="sd">            Absolute path to the Gamry DTA file.</span>
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_already_read</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'Data has already been read for this object! Either delete or make a new object.'</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">read</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'	Pt'</span><span class="p">):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_headers</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+                <span class="k">elif</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'	#'</span><span class="p">):</span>
+                    <span class="n">units</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+                    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">header</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_headers</span><span class="p">):</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_headers</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">header</span> <span class="o">+</span> <span class="s1">' ('</span> <span class="o">+</span> <span class="n">units</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">+</span> <span class="s1">')'</span>
+                <span class="k">elif</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'	0'</span><span class="p">):</span>
+                   <span class="n">read</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">if</span> <span class="n">read</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+                    <span class="n">data</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">pt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">freq</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">z_real</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">z_imag</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">4</span><span class="p">]))</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">z_sig</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">5</span><span class="p">]))</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">z_mod</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">6</span><span class="p">]))</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">z_phase</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">7</span><span class="p">]))</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">idc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">8</span><span class="p">]))</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">vdc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">9</span><span class="p">]))</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">ie_range</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">10</span><span class="p">]))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data_already_read</span> <span class="o">=</span> <span class="kc">True</span></div>
+
+<div class="viewcode-block" id="EisSweep.get_data_as_array"><a class="viewcode-back" href="../../api.html#primed_data_processing.gamry_eis.EisSweep.get_data_as_array">[docs]</a>    <span class="k">def</span> <span class="nf">get_data_as_array</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ``numpy.ndarray``</span>
+<span class="sd">            Nx11 array where the columns are pt, time, freq, zreal, zimag, zsig, zmod,</span>
+<span class="sd">            zphase, idc, vdc, ierange</span>
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+            <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">freq</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">z_real</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">z_imag</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">z_sig</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">z_mod</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">z_phase</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">idc</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vdc</span><span class="p">,</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">ie_range</span><span class="p">])</span><span class="o">.</span><span class="n">T</span></div>
+
+<div class="viewcode-block" id="EisSweep.get_data_as_dataframe"><a class="viewcode-back" href="../../api.html#primed_data_processing.gamry_eis.EisSweep.get_data_as_dataframe">[docs]</a>    <span class="k">def</span> <span class="nf">get_data_as_dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ``pandas.DataFrame``</span>
+<span class="sd">            Nx11 table where column headers are pt, time, freq, zreal, zimag, zsig,</span>
+<span class="sd">            zmod, zphase, idc, vdc, ierange</span>
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_data_as_array</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_headers</span><span class="p">)</span></div></div>
+        
+
+<div class="viewcode-block" id="EisCycle"><a class="viewcode-back" href="../../api.html#primed_data_processing.gamry_eis.EisCycle">[docs]</a><span class="k">class</span> <span class="nc">EisCycle</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Represents a cycle in a given test where any number of ``EisSweep`` can occur.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ``cycle_number`` \: ``int``</span>
+<span class="sd">        The cycle number in the test.</span>
+<span class="sd">    ``sweeps`` \: ``list[EisSweep]``</span>
+<span class="sd">        List of ``EisSweep`` objects that occur in this cycle.</span>
+<span class="sd">    ``name`` \: ``str`` optional, default is ``''``</span>
+<span class="sd">        Name of the object.</span>
+
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">    """</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cycle_number</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">sweeps</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">EisSweep</span><span class="p">]</span><span class="o">=</span><span class="p">[],</span> <span class="n">name</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        ``cycle_number`` : ``int``</span>
+<span class="sd">            The cycle number in the test.</span>
+<span class="sd">        ``sweeps`` : ``list[EisSweep]`` optional, default is ``[]``</span>
+<span class="sd">            List of ``EisSweep`` objects. It is recommended to put them in chronological order.</span>
+<span class="sd">        ``name`` : ``str`` optional, default is ``''``</span>
+<span class="sd">            Name of the object.</span>
+<span class="sd">        """</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cycle_index</span> <span class="o">=</span> <span class="n">cycle_number</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sweeps</span> <span class="o">=</span> <span class="n">sweeps</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s1">'EisCycle name: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">, cycle index: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">cycle_index</span><span class="si">}</span><span class="s1">'</span>
+
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">iter_index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="bp">self</span>
+        
+    <span class="k">def</span> <span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">EisSweep</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">iter_index</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sweeps</span><span class="p">):</span>
+            <span class="n">eis_sweep</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sweeps</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">iter_index</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">iter_index</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">return</span> <span class="n">eis_sweep</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">StopIteration</span>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">EisSweep</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sweeps</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+
+<div class="viewcode-block" id="EisCycle.add_sweep"><a class="viewcode-back" href="../../api.html#primed_data_processing.gamry_eis.EisCycle.add_sweep">[docs]</a>    <span class="k">def</span> <span class="nf">add_sweep</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eis_sweep</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Add an ``EisSweep`` object to the cycle.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        ``eis_sweep`` \: ``EisSweep``</span>
+<span class="sd">            ``EisSweep`` object to be added to the cycle.</span>
+<span class="sd">        """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sweeps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">eis_sweep</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="EisCycle.get_data_as_array"><a class="viewcode-back" href="../../api.html#primed_data_processing.gamry_eis.EisCycle.get_data_as_array">[docs]</a>    <span class="k">def</span> <span class="nf">get_data_as_array</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ``numpy.ndarray``</span>
+<span class="sd">            All EisSweeps in the cycle as a m x n x 11 array where m is the number of sweeps, n is the </span>
+<span class="sd">            number of measurements, and 11 is the number of columns.</span>
+
+<span class="sd">            Can also be seen as an output of m ``EisSweep.get_data_as_array()``.</span>
+<span class="sd">        """</span>
+        <span class="n">output_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">eis_sweep</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sweeps</span><span class="p">:</span>
+            <span class="n">output_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">eis_sweep</span><span class="o">.</span><span class="n">get_data_as_array</span><span class="p">())</span>
+        
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">output_list</span><span class="p">)</span></div></div>
+
+<div class="viewcode-block" id="EisCell"><a class="viewcode-back" href="../../api.html#primed_data_processing.gamry_eis.EisCell">[docs]</a><span class="k">class</span> <span class="nc">EisCell</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Represents a cell (battery) in a given test where any number of ``EisCycle`` can occur.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ``name`` \: ``str``</span>
+<span class="sd">        Name of the cell. Default is ``''``.</span>
+<span class="sd">    ``eis_cycles`` \: ``list[EisCycle]``</span>
+<span class="sd">        List of ``EisCycle`` objects representing all of the sweeps measured in a given cycle.</span>
+<span class="sd">    ``cell_number`` \: ``int``</span>
+<span class="sd">        The cell number from the test.</span>
+<span class="sd">    ``channel_number`` \: ``int``</span>
+<span class="sd">        The channel number from the test.</span>
+
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">    """</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cell_number</span><span class="p">,</span> <span class="n">channel_number</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">eis_cycles</span><span class="o">=</span><span class="p">[])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        name : str, optional default is ''.</span>
+<span class="sd">            Name of the cell. </span>
+<span class="sd">        eis_cycles : list, optional</span>
+<span class="sd">            EisCycle objects representing all of the sweeps measured in a given cycle 9def.</span>
+<span class="sd">        cell_number : int</span>
+<span class="sd">            The cell number from the test.</span>
+<span class="sd">        channel_number : int</span>
+<span class="sd">            The channel number from the test.</span>
+<span class="sd">        """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cycles</span> <span class="o">=</span> <span class="n">eis_cycles</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cell_number</span> <span class="o">=</span> <span class="n">cell_number</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channel_number</span> <span class="o">=</span> <span class="n">channel_number</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s1">'EisCell name: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">, cell #: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">cell_number</span><span class="si">}</span><span class="s1">, channel # </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">channel_number</span><span class="si">}</span><span class="s1">'</span>
+
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">iter_index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="bp">self</span>
+        
+    <span class="k">def</span> <span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">EisSweep</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">iter_index</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cycles</span><span class="p">):</span>
+            <span class="n">eis_cycle</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cycles</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">iter_index</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">iter_index</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">return</span> <span class="n">eis_cycle</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">StopIteration</span>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">EisCycle</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cycles</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+
+<div class="viewcode-block" id="EisCell.add_cycle"><a class="viewcode-back" href="../../api.html#primed_data_processing.gamry_eis.EisCell.add_cycle">[docs]</a>    <span class="k">def</span> <span class="nf">add_cycle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eis_cycle</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        ``eis_cycle`` \: ``EisCycle``</span>
+<span class="sd">            ``EisCycle`` to be added to the cell.</span>
+<span class="sd">        """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cycles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">eis_cycle</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="EisCell.get_data_as_array"><a class="viewcode-back" href="../../api.html#primed_data_processing.gamry_eis.EisCell.get_data_as_array">[docs]</a>    <span class="k">def</span> <span class="nf">get_data_as_array</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ``numpy.ndarray``</span>
+<span class="sd">            All ``EisCycles`` in the cell. Shape is z x m x n x 11 where z is the number</span>
+<span class="sd">            of cycles, m is the number of sweeps, and n is the number of data points in the sweep. 11 is</span>
+<span class="sd">            the number of measured parameters in the EIS sweep.</span>
+<span class="sd">        """</span>
+        <span class="n">output_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">eis_cycle</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cycles</span><span class="p">:</span>
+            <span class="n">output_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">eis_cycle</span><span class="o">.</span><span class="n">get_data_as_array</span><span class="p">())</span>
+        
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">output_list</span><span class="p">)</span></div></div>
+</code></pre></div>
+</article>
+<footer>
+<div class="mt-20 mb-4 text-sm text-gray-700 print:mt-4">© 2023, Sean Buchanan Made with <a href="https://www.sphinx-doc.org">Sphinx 6.1.3</a></div>
+</footer></main>
+<button class="fixed bottom-0 right-0 z-20 opacity-0 p-4 m-4 tracking-wide bg-gray-900 text-gray-100 transition transform transform-gpu duration-500 translate-y-full" data-action="search#hideSnackbar" data-search-target="snackbar">
+  Clear highlights
+</button><div class="fixed hidden inset-0 bg-black bg-opacity-50" data-action="click-&gt;sidebar#close" data-sidebar-target="screen">
+</div>
+</div>
+<script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+<script src="../../_static/doctools.js"></script>
+<script src="../../_static/sphinx_highlight.js"></script>
+<script src="../../_static/theme.b62e1ded0c8c099a2d47.js"></script>
+</body>
+</html>
