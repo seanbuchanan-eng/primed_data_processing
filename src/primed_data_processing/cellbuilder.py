@@ -7,6 +7,12 @@ from .gamry_eis import EisSweep, EisCycle, EisCell
 class CellBuilder:
     """
     This object builds the cell data structure from the raw Arbin data files.
+
+    Attributes
+    ----------
+
+    Methods
+    -------
     """
 
     def __init__(self) -> None:
