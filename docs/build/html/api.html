@@ -439,6 +439,11 @@ zmod, zphase, idc, vdc, ierange</p>
 <em class="property">class<span class="w"> </span></em><code class="sig-prename descclassname">primed_data_processing.cellbuilder.</code><code class="sig-name descname">CellBuilder</code><a class="reference internal" href="_modules/primed_data_processing/cellbuilder.html#CellBuilder"><span class="viewcode-link">[source]</span></a><button aria-expanded="false" aria-label="Expand this section" class="expand-more tooltipped tooltipped-nw" data-action="collapsible#expandMore"><svg aria-hidden="true" pointer-events="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg></button><a aria-label="Click to copy this link" class="headerlink tooltipped tooltipped-ne" data-action="click-&gt;clipboard#copyHeaderLink" data-controller="clipboard" href="#primed_data_processing.cellbuilder.CellBuilder">¶</a></dt>
 <dd class="panel">
 <p>This object builds the cell data structure from the raw Arbin data files.</p>
+<section id="id25">
+<h3>Attributes<a aria-label="Click to copy this link" class="headerlink tooltipped tooltipped-ne" data-action="click-&gt;clipboard#copyHeaderLink" data-controller="clipboard" href="#id25">¶</a></h3>
+</section>
+<section id="id26">
+<h3>Methods<a aria-label="Click to copy this link" class="headerlink tooltipped tooltipped-ne" data-action="click-&gt;clipboard#copyHeaderLink" data-controller="clipboard" href="#id26">¶</a></h3>
 <dl class="py method code-definition">
 <dt class="sig sig-object py accordion" data-action="click-&gt;collapsible#expandAccordion" data-controller="collapsible" id="primed_data_processing.cellbuilder.CellBuilder.merge_B6_eis_data">
 <code class="sig-name descname">merge_B6_eis_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">eis_cells</span><span class="p">:</span><span class="w"> </span><span class="n">list<span class="p">[</span><a class="reference internal" href="#primed_data_processing.gamry_eis.EisCell" title="primed_data_processing.gamry_eis.EisCell">primed_data_processing.gamry_eis.EisCell</a><span class="p">]</span></span></em>, <em class="sig-param"><span class="n">arbin_cells</span><span class="p">:</span><span class="w"> </span><span class="n">list<span class="p">[</span><a class="reference internal" href="#primed_data_processing.arbin_cycler.ArbinCell" title="primed_data_processing.arbin_cycler.ArbinCell">primed_data_processing.arbin_cycler.ArbinCell</a><span class="p">]</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint">None</span></span><a class="reference internal" href="_modules/primed_data_processing/cellbuilder.html#CellBuilder.merge_B6_eis_data"><span class="viewcode-link">[source]</span></a><button aria-expanded="false" aria-label="Expand this section" class="expand-more tooltipped tooltipped-nw" data-action="collapsible#expandMore"><svg aria-hidden="true" pointer-events="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg></button><a aria-label="Click to copy this link" class="headerlink tooltipped tooltipped-ne" data-action="click-&gt;clipboard#copyHeaderLink" data-controller="clipboard" href="#primed_data_processing.cellbuilder.CellBuilder.merge_B6_eis_data">¶</a></dt>
@@ -446,8 +451,8 @@ zmod, zphase, idc, vdc, ierange</p>
 <p>Merge eis cells into the arbin cells. Ensures that eis steps are input into the correct ArbinCyles.</p>
 <p>Eis steps will only be merged into the Arbin objects if their is a correspoinding ArbinCell with a
 matching channel number and cycle number.</p>
-<section id="id25">
-<h3>Parameters<a aria-label="Click to copy this link" class="headerlink tooltipped tooltipped-ne" data-action="click-&gt;clipboard#copyHeaderLink" data-controller="clipboard" href="#id25">¶</a></h3>
+<section id="id27">
+<h4>Parameters<a aria-label="Click to copy this link" class="headerlink tooltipped tooltipped-ne" data-action="click-&gt;clipboard#copyHeaderLink" data-controller="clipboard" href="#id27">¶</a></h4>
 <dl class="simple">
 <dt>eis_cells<span class="classifier">list[EisCell]</span></dt><dd><p>List of EisCell to have steps added to the ArbinCells.</p>
 </dd>
@@ -462,8 +467,8 @@ matching channel number and cycle number.</p>
 <dd class="panel">
 <p>Read raw Arbin test data from a csv file such that only the data according to the steps
 in <cite>steps</cite> is read and stored.</p>
-<section id="id26">
-<h3>Parameters<a aria-label="Click to copy this link" class="headerlink tooltipped tooltipped-ne" data-action="click-&gt;clipboard#copyHeaderLink" data-controller="clipboard" href="#id26">¶</a></h3>
+<section id="id28">
+<h4>Parameters<a aria-label="Click to copy this link" class="headerlink tooltipped tooltipped-ne" data-action="click-&gt;clipboard#copyHeaderLink" data-controller="clipboard" href="#id28">¶</a></h4>
 <dl class="simple">
 <dt>cell<span class="classifier">ArbinCell</span></dt><dd><p>Cell that the data is to be loaded to.</p>
 </dd>
@@ -480,8 +485,8 @@ and stored.</p>
 <code class="sig-name descname">read_leaf_characterization_excel_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_path</span><span class="p">:</span><span class="w"> </span><span class="n">str</span></em>, <em class="sig-param"><span class="n">steps</span><span class="p">:</span><span class="w"> </span><span class="n">dict<span class="p">[</span>str<span class="p">,</span><span class="w"> </span>list<span class="p">[</span>int<span class="p">]</span><span class="p">]</span></span></em>, <em class="sig-param"><span class="n">verbose</span><span class="p">:</span><span class="w"> </span><span class="n">bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="default_value">False</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint">list<span class="p">[</span><a class="reference internal" href="#primed_data_processing.arbin_cycler.ArbinCell" title="primed_data_processing.arbin_cycler.ArbinCell">primed_data_processing.arbin_cycler.ArbinCell</a><span class="p">]</span></span></span><a class="reference internal" href="_modules/primed_data_processing/cellbuilder.html#CellBuilder.read_leaf_characterization_excel_data"><span class="viewcode-link">[source]</span></a><button aria-expanded="false" aria-label="Expand this section" class="expand-more tooltipped tooltipped-nw" data-action="collapsible#expandMore"><svg aria-hidden="true" pointer-events="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg></button><a aria-label="Click to copy this link" class="headerlink tooltipped tooltipped-ne" data-action="click-&gt;clipboard#copyHeaderLink" data-controller="clipboard" href="#primed_data_processing.cellbuilder.CellBuilder.read_leaf_characterization_excel_data">¶</a></dt>
 <dd class="panel">
 <p>Load Nissan Leaf initial characterization data from the init_gen1_packX excel files.</p>
-<section id="id27">
-<h3>Parameters<a aria-label="Click to copy this link" class="headerlink tooltipped tooltipped-ne" data-action="click-&gt;clipboard#copyHeaderLink" data-controller="clipboard" href="#id27">¶</a></h3>
+<section id="id29">
+<h4>Parameters<a aria-label="Click to copy this link" class="headerlink tooltipped tooltipped-ne" data-action="click-&gt;clipboard#copyHeaderLink" data-controller="clipboard" href="#id29">¶</a></h4>
 <dl class="simple">
 <dt>cell<span class="classifier">ArbinCell</span></dt><dd><p>Cell that the data is to be loaded to.</p>
 </dd>
@@ -493,6 +498,7 @@ and stored.</p>
 </dl>
 </section>
 </dd></dl>
+</section>
 </dd></dl>
 </section>
 </section>
