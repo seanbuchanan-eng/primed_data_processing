@@ -23,6 +23,7 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.viewcode',
     'sphinxawesome_theme',
+    'sphinx.ext.githubpages',
 ]
 html_collapsible_definitions = True
 
