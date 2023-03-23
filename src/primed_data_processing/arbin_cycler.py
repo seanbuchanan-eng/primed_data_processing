@@ -5,7 +5,7 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from src.primed_data_processing.gamry_eis import EisCell, EisSweep
+from .gamry_eis import EisCell, EisSweep
 
 class ArbinStep:
     """
