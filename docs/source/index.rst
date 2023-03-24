@@ -17,12 +17,3 @@ Check out the :doc:`usage` section for further information.
    
    usage
    api
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
