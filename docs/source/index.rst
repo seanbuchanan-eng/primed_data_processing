@@ -15,5 +15,6 @@ Check out the :doc:`usage` section for further information.
 .. toctree::
    :caption: Contents:
    
+   tests
    usage
    api
