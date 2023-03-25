@@ -24,7 +24,9 @@ jobs:
           pip install primed-data-processing
 
       - name: Build documentation
-        run: make -C docs html
+        run: |
+          make -C docs clean
+          make -C docs html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
