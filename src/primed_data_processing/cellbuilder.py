@@ -223,11 +223,43 @@ class CellBuilder:
         come back and fix so that values are not all str.
         """
         for idx, header in enumerate(keys):
-            step[header] = [values[idx]]
+            if type(values[idx]) is str:
+                if self._check_float(values[idx]):
+                    step[header] = [float(values[idx])]
+                elif self._check_int(values[idx]):
+                    step[header] = [int(values[idx])]
+                else:
+                    step[header] = [values[idx]]
+            else:
+                step[header] = [values[idx]]
 
     def _add_data_to_current_step(self, step: ArbinStep, keys: list[str], values: list[str]) -> None:
         """
         come back and fix so that values are not all str.
         """
         for idx, header in enumerate(keys):
-            step[header].append(values[idx])
+            if type(values[idx]) is str:
+                if self._check_float(values[idx]):
+                    step[header].append(float(values[idx]))
+                elif self._check_int(values[idx]):
+                    step[header].append(int(values[idx]))
+                else:
+                    step[header].append(values[idx])
+            else:
+                step[header].append(values[idx])
+
+    def _check_int(self, var):
+        try:
+            int(var)
+        except ValueError:
+            return False
+        else:
+            return True
+        
+    def _check_float(self, var):
+        try:
+            float(var)
+        except ValueError:
+            return False
+        else:
+            return True
