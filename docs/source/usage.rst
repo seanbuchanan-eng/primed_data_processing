@@ -222,4 +222,128 @@ Advanced Data Importing
 -----------------------
 
 This section expands on what was covered in the :ref:`Quick Start <quickstart>` 
-section.
+section by importing full tests with multiple files. To try this example you will
+need access to the full B6T10V0 dataset 
+( `contact <https://onlineacademiccommunity.uvic.ca/primed/>`_ )
+and have it downloaded locally. Once the data is downloaded import the required packages.
+
+.. code-block:: python
+
+    from primed_data_processing.cellbuilder import CellBuilder
+    from primed_data_processing.arbin_cycler import ArbinCell, ArbinCycle, ArbinStep
+    from primed_data_processing.gamry_eis import EisSweep, EisCycle, EisCell
+
+    import os
+
+Next, we will import the Arbin data using ``CellBuilder``. Make sure that the file structure
+hasn't been changed since you downloaded it. As long as the file structure remains the 
+same as when it was downloaded the test can be imported as below.
+
+.. code-block:: python
+
+    # instantiate CellBuilder
+    cell_builder = CellBuilder()
+
+    raws_prepath = 'path/to/raws/'
+
+    # all channel and cell numbers from B6 in order
+    channel_numbers = (1,2,3,4,9,10,11,12,13,14,15,16)
+    cell_numbers = (9,10,11,12,1,2,3,4,5,6,7,8)
+
+    # list for holding processed cells
+    arbin_cells = []
+
+    # loop over channel numbers
+    for channel_idx, channel in enumerate(channel_numbers):
+        print(f'Processing channel {channel}')
+
+        # make subfolder name in raws folder
+        folder_name = f'B6T10V0_1_2_3_4_9_10_11_12_13_14_15_16/Channel_{channel}/'
+
+        # append new cell to cells processed cells list
+        arbin_cells.append(ArbinCell(cell_numbers[channel_idx], channel))
+
+        # get directory of the current folder
+        directory = os.fsencode(raws_prepath+folder_name)
+
+        # loop over all files in the current directory
+        for file in os.listdir(directory):
+            # get filename
+            filename = os.fsdecode(file)
+
+            # ignore .xlsx files
+            if filename.endswith('.csv'):
+                # process file with CellBuilder method
+                cell_builder.read_B6_csv_data(
+                    arbin_cells[channel_idx], # current cell being processed
+                    raws_prepath+folder_name+filename, # path to file being processed
+                    {'characterization': [10,13,14]}, # steps to save
+                    verbose=False # minimal printouts
+                )
+
+Next, import EIS data in a similar manner.
+
+.. code-block:: python
+
+    # Load eis into objects
+    file_prepath = 'path/to/raws/B6T10V0_1_2_3_4_9_10_11_12_13_14_15_16/EIS/'
+
+    # all channel and cell numbers from B6 in order
+    channel_numbers = (1,2,3,4,9,10,11,12,13,14,15,16)
+    cell_numbers = (9,10,11,12,1,2,3,4,5,6,7,8)
+
+    # list for holding processed cells
+    eis_cells = []
+
+    # loop over all channels in the batch
+    for channel_idx, channel in enumerate(channel_numbers):
+        # initial cycle number
+        cycle = 1
+
+        # list for storying processed cycles
+        eis_cycles = []
+
+        # loop until cycle number 23.
+        while cycle <= 23:
+
+            # make a new EisSweep for every cycle (only 1 sweep per cycle in this case)
+            eis_sweep = EisSweep(f'eis cycle{cycle}', 0.5, 14)
+
+            # handle different file and cycle combinations in the .DTA filename.
+            if cycle < 10 and channel < 10:
+                eis_sweep.read_DTA_file(file_prepath + f'B6T10V0_Chan00{channel}_Cycle00{cycle}_Step014.DTA')
+            elif cycle < 10 and channel < 100:
+                eis_sweep.read_DTA_file(file_prepath + f'B6T10V0_Chan0{channel}_Cycle00{cycle}_Step014.DTA')
+            elif cycle < 100 and channel < 10:
+                eis_sweep.read_DTA_file(file_prepath + f'B6T10V0_Chan00{channel}_Cycle0{cycle}_Step014.DTA')
+            elif cycle < 100 and channel < 100:
+                eis_sweep.read_DTA_file(file_prepath + f'B6T10V0_Chan0{channel}_Cycle0{cycle}_Step014.DTA')
+            else:
+                print('Cycle number greater than 100!')
+
+            # add a new EisCycle to the cycles list for every cycle
+            eis_cycles.append(EisCycle(cycle, [eis_sweep], f'cycle_object_{cycle}'))
+            cycle += 2
+            
+            
+        # make the EisCell object with all of the processed data
+        eis_cells.append(EisCell(
+            name=f'eis step for channel{channel}', 
+            eis_cycles=eis_cycles, 
+            cell_number=cell_numbers[channel_idx], 
+            channel_number=channel)
+            )
+        # reset the cycles list for the new cell.
+        eis_cycles = []
+
+Then we can merge the two datasets together,
+
+.. code-block:: python
+
+    cell_builder.merge_B6_eis_data(eis_cells, arbin_cells)
+
+and inspect and consume the data using the ``ArbinCell`` methods described in the 
+:ref:`Quick Start <quickstart>` section.
+
+For more examples see `examples <https://github.com/seanbuchanan-eng/primed_data_processing/examples>`_
+on GitHub.

@@ -95,37 +95,38 @@ B6 Test Index
 
 .. csv-table::
     :header: "Step", "Test 10", "Test 11", "Test 12"
-    :widths: 15, 15, 15, 15
+    :widths: 20, 35, 35, 35
     :align: left
     
-    1 ,Start
-    2 ,C Reset
-    3 ,C CC Dis
-    4 ,C Rest
-    5 ,C Reset
-    6 ,C CC Cha
-    7 ,C CV Cha
-    8 ,C Rest
-    9 ,C Reset
-    10 ,C CC Dis
-    11 ,C Rest
-    12 ,C CC Cha
-    13 ,C Rest
-    14 ,ACIM
-    15 ,C Rest
-    16 ,IR
-    17 ,C Rest
-    18 ,C Reset
-    19 ,C CC Cha
-    20 ,C Rest
-    21 ,C Reset
-    22 ,C Rest
-    23 ,D CC Dis
-    24 ,D Reset
-    25 ,D Rest
-    26 ,D CC Cha
-    27 ,D CV Cha
-    28 ,D Rest
-    29 ,D CC Dis
-    30 ,D Reset
-    31 ,D Rest
+    1	,Start	    ,Start	    ,Start
+    2	,C Reset	,C Reset	,C Reset
+    3	,C CC Dis	,C CC Dis	,C CC Dis
+    4	,C Rest	    ,C Rest	    ,C Rest
+    5	,C Reset	,C Reset	,C Reset
+    6	,C CC Cha	,C CC Cha	,C CC Cha
+    7	,C CV Cha	,C CV Cha	,C CV Cha
+    8	,C Rest	    ,C Rest	    ,C Rest
+    9	,C Reset	,C Reset	,C Reset
+    10	,C CC Dis	,C CC Dis	,C CC Dis
+    11	,C Rest	    ,C Rest	    ,C Rest
+    12	,C CC Cha	,C CC Cha	,C CC Cha
+    13	,C Rest	    ,C Rest	    ,C Rest
+    14	,ACIM	    ,ACIM	    ,ACIM
+    15	,C Rest	    ,C Rest	    ,C Rest
+    16	,IR	        ,IR	        ,IR
+    17	,C Rest	    ,C Rest	    ,C Rest
+    18	,C Reset	,C Rest	    ,C Rest
+    19	,C CC Cha	,D Reset	,D Reset
+    20	,C Rest	    ,D CC Dis	,D Rest
+    21	,C Reset	,D Rest	
+    22	,C Rest	    ,D CC Cha	
+    23	,D CC Dis	,D Rest	
+    24	,D Reset	,D Reset	
+    25	,D Rest	    ,Sim	
+    26	,D CC Cha		
+    27	,D CV Cha		
+    28	,D Rest		
+    29	,D CC Dis		
+    30	,D Reset		
+    31	,D Rest		
+
