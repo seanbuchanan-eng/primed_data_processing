@@ -1,6 +1,8 @@
 Usage
 =====
 
+This section explains how to use the ``primed_data_processing`` package.
+
 .. _installation:
 
 Installation
@@ -26,18 +28,14 @@ module. The cellbuilder module contains a :py:class:`~primed_data_processing.cel
 class with methods for processing Arbin and Gamry data from specific tests performed at PRIMED, 
 and building the corresponding Arbin and EIS data structures from the raw data. 
 
-..
-    Because of events like equipment failures and power outages, the raw data from the battery tests at PRIMED are rarely uniform.
-    Consequently, making a program that would generalize to all tests would be both difficult and require regular maintenance.
-    As a result, the primed_data_processing package is inteded to provide a framework for storing and Working
-    with the data but relies on the user to perform most of the data processing. That being said, 
-    :py:class:`~primed_data_processing.cellbuilder.CellBuilder` contains methods for processing
-    data from previous tests that have already been tested. The Quick Start section will cover how to use
-    these tools.
-
 To get to know the classes in this package we will start with a simple example with data that can be 
 found on the `GitHub repo <https://github.com/seanbuchanan-eng/primed_data_processing>`_. We will start
 with the Arbin cycler data and then work towards incorporating EIS data.
+
+All of the following code examples can be found on the GitHub repo in ``examples/``.
+
+Working With Cycler Data
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 To start, import the required modules and classes from ``primed_data_processing``.
 
@@ -78,15 +76,150 @@ data file and each cycle will contain all of the steps with their corresponding 
 occurred in that step. We can then view and manipulate the data using the methods provided in
 the :ref:`API documentation <arbinapi>`.
 
+All Arbin cycler objects in this package are iterable; therefore, there is two ways to access the
+cycles and steps within ``cell``. To show an example we will use the ``get_data_as_dataframe()``
+to get the data as a Pandas DataFrame for step 10.
+
 .. code-block:: python
 
+    # Using loops
+    for cycle in cell:
+        if cycle.cycle_index == 1:
+            for step in cycle:
+                if step.step_index == 10:
+                    step.get_data_as_dataframe()
 
+    # Using object attributes
+    cell.cycles[0].get_step(10)[0].get_data_as_dataframe()
+
+As shown above we can use either loops or the provided method ``get_step(step number)`` in the cycle
+object to get a list of the step `step number` that occur in the cycle.
+
+Adding, observing, and manipulating data is mostly confined to the 
+:py:class:`~primed_data_processing.arbin_cycler.ArbinStep` object. The ``ArbinStep`` object has the 
+methods :py:meth:`~primed_data_processing.arbin_cycler.ArbinStep.get_data_as_dataframe` and 
+:py:meth:`~primed_data_processing.arbin_cycler.ArbinStep.get_data_as_array` for observing data. The
+data can then be manipulated using the returned data structures. Additionally, ``ArbinStep`` itself acts
+like a python dictionary so that the data can be accessed using key-word identifiers. The keys are based 
+on what headers are in the original data files. To get a list of the headers there is two options.
+
+.. code-block:: python
+
+    # Using cell (preferred method)
+    cell.headers
+
+    # Using the data_dict attribute
+    cell.cycles[0].get_step(10)[0].data_dict.keys()
+
+The headers can be used to select specific data from the ``ArbinStep``. 
+
+.. code-block:: python
+
+    # Get step
+    step = cell.cycles[0].get_step(10)[0]
     
+    # Get voltage data from the step
+    voltage = step['Voltage(V)']
 
+The final option provided by ``ArbinStep`` is to quickly plot data using the 
+:py:meth:`~primed_data_processing.arbin_cycler.ArbinStep.plot_step_column` method. The plotting
+method plots a single feature in the step, such as voltage.
 
+.. code-block:: python
+    
+    # Get step
+    step = cell.cycles[0].get_step(10)[0]
 
-Processing Data Using CellBuilder
----------------------------------
+    # Plot voltage
+    step.plot_step_column('Voltage(V)')
 
-Typical raw Arbin test data from PRIMED is .csv or .xlsx files with various column headers such as "Voltage(V)", "Current(A)",
-and "Charge_Capacity(Ah)", etc. 
+Working With Gamry EIS Data
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Working with the Gamry EIS data is a bit different to the Arbin data. Because the EIS .DTA files don't contain 
+any information about where they came from in the test, i.e what cycle number or cell number, it's up to the 
+user to properly configure the data. To do so, we will use the :ref:`Gamry API documentation <gamryapi>`.
+
+Like the Arbin data, we will use the provided example data on the
+`GitHub repo <https://github.com/seanbuchanan-eng/primed_data_processing>`_ 
+under test/eis_testing_data. To start, make the necessary imports.
+
+.. code-block:: python
+
+    from primed_data_processing.gamry_eis import EisSweep, EisCycle, EisCell
+
+Now we import the data using the ``EisSweep`` method 
+:py:meth:`~primed_data_processing.gamry_eis.EisSweep.read_DTA_file`.
+
+.. code-block:: python
+
+    path = 'path/to/B6T10V0_Chan001_Cycle001_Step014.DTA'
+
+    # Make EisSweep object to store the data
+    # from the Arbin data we know that eis steps happen at 50% soc
+    eis_sweep = EisSweep(name='eis cycle 1', soc=0.5, step_index=14)
+
+    # import the data
+    eis_sweep.read_DTA_file(path)
+
+As you can see, the EIS data filenames contain the channel and cycle that 
+they came from. We will use this fact extensively when processing the data.
+Now we can put the sweep into cycle and cell objects. This step is obviously
+unnecessary for just a single ``EisSweep``, however, it is helpful to illustrate
+the process so that when a test has multiple EIS sweeps at different SOC's in
+a single cycle they can be organized and easily indexed.
+
+.. code-block:: python
+
+    # Make an EisCycle object
+    cycle = EisCycle(cycle_number=1, sweeps=[eis_sweep], name='cycle1')
+
+    # Make an EisCell object
+    cell = EisCell(cell_number=1, channel_number=1, name='cell1', eis_cycles=[cycle])
+
+We now see the same structure as the Arbin data start to form with the ``cell[cycle[step]]``
+type packaging.
+
+Now we can inspect the data similarly to Arbin data using 
+:py:meth:`~primed_data_processing.gamry_eis.EisSweep.get_data_as_array` and 
+:py:meth:`~primed_data_processing.gamry_eis.EisSweep.get_data_as_dataframe`. 
+
+.. code-block:: python
+
+    cell.cycles[0].sweeps[0].get_data_as_dataframe()
+    cell.cycles[0].sweeps[0].get_data_as_array()
+
+Merging Arbin and Gamry Data
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you've been following along through the whole `Quick start` section, you
+may be thinking that accessing the EIS data with the Arbin data would be nice.
+Combining the data would allow for easy access of step temperatures, discharge 
+capacities, etc. during the same cycle as the EIS.
+
+To support this functionality for the B6 dataset, the CellBuilder method 
+:py:meth:`~primed_data_processing.cellbuilder.CellBuilder.merge_B6_eis_data`
+merges the two data sets together. Once merged, the EisSweeps can be accessed
+from the corresponding ``ArbinStep`` using 
+:py:meth:`~primed_data_processing.arbin_cycler.ArbinStep.get_eis_step`. For more
+details see the tutorial notebook on 
+`GitHub <https://github.com/seanbuchanan-eng/primed_data_processing>`_ and the 
+documentation for ``merge_B6_eis_data()``.
+
+Although ``CellBuilder`` provides helper methods for easy processing of data 
+from previous tests at PRIMED, the ultimate intention of this package is to 
+provide a framework for using the data. The actual processing of the data is 
+largely meant to be left to the user. This is because every new test produces
+a new dataset with it's own pitfalls and uniqueness that make it extremely hard 
+to generalize the data processing. 
+
+To help with this more complex data processing and importing, examples are shown
+in the next section :ref:`Advanced Data Importing <advancedDataImporting>`.
+
+.. _advancedDataImporting:
+
+Advanced Data Importing
+-----------------------
+
+This section expands on what was covered in the :ref:`Quick Start <quickstart>` 
+section.
