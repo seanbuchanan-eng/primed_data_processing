@@ -16,6 +16,8 @@ jobs:
       - name: Delete files
         run: |
           git status
+          git config user.name github-actions
+          git config user.email github-actions@github.com
           git rm -r '*.html'
           git commit -m "Delete html files"
           git push
