@@ -10,6 +10,7 @@ class CellBuilder:
 
     Attributes
     ----------
+    None
 
     Methods
     -------
@@ -18,20 +19,28 @@ class CellBuilder:
     def __init__(self) -> None:
         self._reload_data = False
 
-    def read_B6_csv_data(self, cell: ArbinCell, file_path: str, steps: dict[str, list[int]], verbose: bool=False):
+    def read_B6_csv_data(
+            self, 
+            cell: ArbinCell, 
+            file_path: str, 
+            steps: dict[str, list[int]], 
+            verbose: bool=False
+            ) -> None:
         """
         Read raw Arbin test data from a csv file such that only the data according to the steps
         in `steps` is read and stored.
 
         Parameters
         ----------
-        cell : ArbinCell
+        ``cell`` \: ``ArbinCell``
             Cell that the data is to be loaded to.
-        file_path : str
+        ``file_path`` \: ``str``
             Path to an Arbin raw data file according to batch B6. Must be a .csv file.
-        steps : dict
+        ``steps`` \: ``dict``
             Keys are the step type (see ArbinStep.__init__) and values are lists of step numbers to be read
             and stored.
+        ``verbose`` \: ``bool``
+            Optional bool for controlling how much info is printed during data processing. Default is ``False``.
         """
 
         all_step_numbers = []
@@ -83,13 +92,15 @@ class CellBuilder:
         
         Parameters
         ----------
-        cell : ArbinCell
+        ``cell`` \: ``ArbinCell``
             Cell that the data is to be loaded to.
-        file_path : str
+        ``file_path`` \: ``str``
             Path to an Arbin raw data file according to batch B6. Must be a .csv file.
-        steps : dict
+        ``steps`` \: ``dict``
             Keys are the step type (see ArbinStep.__init__) and values are lists of step numbers to be read
             and stored.
+        ``verbose`` \: ``bool``
+            Optional bool for controlling how much info is printed during data processing. Default is ``False``.
         """
         all_step_numbers = []
         for number_list in steps.values():
@@ -138,9 +149,9 @@ class CellBuilder:
 
         Parameters
         ----------
-        eis_cells : list[EisCell]
+        ``eis_cells`` \: ``list[EisCell]``
             List of EisCell to have steps added to the ArbinCells.
-        arbin_cells : list[ArbinCell]
+        ``arbin_cells`` \: ``list[ArbinCell]``
             List of ArbinCell to have eis steps added to.
         """
         eis_cell_dict = {cell.cell_number: cell for cell in eis_cells}
