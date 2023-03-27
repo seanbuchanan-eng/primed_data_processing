@@ -6,6 +6,14 @@ on:
       - main
 
 jobs:
+  delete_files_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Delete files
+        run: |
+          npx gh-pages --remove '*.html'
   deploy:
     runs-on: ubuntu-latest
     steps:
