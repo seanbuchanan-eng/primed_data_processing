@@ -25,7 +25,7 @@ extensions = [
     'sphinxawesome_theme',
     'sphinx.ext.githubpages',
 ]
-html_collapsible_definitions = True
+html_collapsible_definitions = False
 
 templates_path = ['_templates']
 exclude_patterns = []
