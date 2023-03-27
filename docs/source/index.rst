@@ -10,7 +10,7 @@ at the UVic PRIMED Battery Lab https://onlineacademiccommunity.uvic.ca/primed/.
 The intent is that this package will greatly improve access to the data and improve
 its ease of implementation in battery and grid modelling efforts.
 
-Check out the :doc:`usage` section for further information.
+Check out the :doc:`usage` section for information on how to use the package.
 
 .. toctree::
    :caption: Contents:
