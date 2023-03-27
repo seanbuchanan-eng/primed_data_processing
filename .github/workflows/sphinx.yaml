@@ -13,7 +13,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Delete files
         run: |
-          git rm \*.html
+          git status
+          git rm -r '*.html'
           git commit -m "Delete html files"
           git push
   deploy:
