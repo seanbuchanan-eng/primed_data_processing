@@ -300,7 +300,7 @@ Next, import EIS data in a similar manner.
         # initial cycle number
         cycle = 1
 
-        # list for storying processed cycles
+        # list for storing processed cycles
         eis_cycles = []
 
         # loop until cycle number 23.
@@ -345,5 +345,6 @@ Then we can merge the two datasets together,
 and inspect and consume the data using the ``ArbinCell`` methods described in the 
 :ref:`Quick Start <quickstart>` section.
 
-For more examples see `examples <https://github.com/seanbuchanan-eng/primed_data_processing/examples>`_
+For more examples see 
+`examples <https://github.com/seanbuchanan-eng/primed_data_processing/tree/main/examples>`_
 on GitHub.
