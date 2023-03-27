@@ -10,10 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          ref: gh-pages
       - name: Delete files
         run: |
-          git checkout gh-pages
+          git status
           git rm -r '*.html'
           git commit -m "Delete html files"
           git push
