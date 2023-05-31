@@ -30,6 +30,9 @@ class CellBuilder:
         Read raw Arbin test data from a csv file such that only the data according to the steps
         in `steps` is read and stored.
 
+        This method supports looping over multiple files, however it requires that the files are 
+        sorted into chronological order.
+
         Parameters
         ----------
         ``cell`` \: ``ArbinCell``
