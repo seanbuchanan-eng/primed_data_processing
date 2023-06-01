@@ -62,22 +62,17 @@ class EisSweep:
         self.name = name
         self.soc = soc
         self.step_index = step_index
-        self.pt = []
-        self.time = []
-        self.freq = []
-        self.z_real = []
-        self.z_imag = []
-        self.z_sig = []
-        self.z_mod = []
-        self.z_phase = []
-        self.idc = []
-        self.vdc = []
-        self.ie_range = []
-        self._headers = []
+        self.data_dict = {}
         self._data_already_read = False
 
     def __str__(self):
         return f'EisSweep object name: {self.name}, soc: {self.soc}, step_index: {self.step_index}'
+    
+    def __getitem__(self, key: str) -> list:
+        return self.data_dict[key]
+
+    def __setitem__(self, key: str, value: list) -> None:
+        self.data_dict[key] = value
 
     def read_DTA_file(self, file_path: str) -> None:
         """
@@ -99,22 +94,28 @@ class EisSweep:
                 elif line.startswith('	#'):
                     units = line.split()
                     for idx, header in enumerate(self._headers):
-                        self._headers[idx] = header + ' (' + units[idx] + ')'
+                        # remove degree symbol from phz header
+                        if header == 'Zphz':
+                            self._headers[idx] = 'Zphz (degrees)'
+                        else:
+                            self._headers[idx] = header + ' (' + units[idx] + ')'
+                    for header in self._headers:
+                        self.data_dict[header] = []
                 elif line.startswith('	0'):
                    read = True
                 if read == True:
                     data = line.split()
-                    self.pt.append(int(data[0]))
-                    self.time.append(float(data[1]))
-                    self.freq.append(float(data[2]))
-                    self.z_real.append(float(data[3]))
-                    self.z_imag.append(float(data[4]))
-                    self.z_sig.append(float(data[5]))
-                    self.z_mod.append(float(data[6]))
-                    self.z_phase.append(float(data[7]))
-                    self.idc.append(float(data[8]))
-                    self.vdc.append(float(data[9]))
-                    self.ie_range.append(int(data[10]))
+                    self.data_dict[self._headers[0]].append(int(data[0]))
+                    self.data_dict[self._headers[1]].append(float(data[1]))
+                    self.data_dict[self._headers[2]].append(float(data[2]))
+                    self.data_dict[self._headers[3]].append(float(data[3]))
+                    self.data_dict[self._headers[4]].append(float(data[4]))
+                    self.data_dict[self._headers[5]].append(float(data[5]))
+                    self.data_dict[self._headers[6]].append(float(data[6]))
+                    self.data_dict[self._headers[7]].append(float(data[7]))
+                    self.data_dict[self._headers[8]].append(float(data[8]))
+                    self.data_dict[self._headers[9]].append(float(data[9]))
+                    self.data_dict[self._headers[10]].append(int(data[10]))
 
         self._data_already_read = True
 
@@ -126,10 +127,7 @@ class EisSweep:
             Nx11 array where the columns are pt, time, freq, zreal, zimag, zsig, zmod,
             zphase, idc, vdc, ierange
         """
-        return np.array(
-            [self.pt, self.time, self.freq, self.z_real, self.z_imag,
-            self.z_sig, self.z_mod, self.z_phase, self.idc, self.vdc, 
-            self.ie_range]).T
+        return self.get_data_as_dataframe().to_numpy()
 
     def get_data_as_dataframe(self) -> pd.DataFrame:
         """
@@ -139,8 +137,7 @@ class EisSweep:
             Nx11 table where column headers are pt, time, freq, zreal, zimag, zsig,
             zmod, zphase, idc, vdc, ierange
         """
-        return pd.DataFrame(self.get_data_as_array(), columns=self._headers)
-        
+        return pd.DataFrame(self.data_dict)
 
 class EisCycle:
     """
