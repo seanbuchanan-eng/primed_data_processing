@@ -138,6 +138,29 @@ class EisSweep:
             zmod, zphase, idc, vdc, ierange
         """
         return pd.DataFrame(self.data_dict)
+    
+    def make_first_quadrant_dict(self) -> None:
+        """
+        Makes an attribute named ``first_dict`` that contains only the data of the
+        first quadrant of the Nyquist plot.
+        """
+        # gaurding against empty dict
+        if not self.data_dict:
+            raise AttributeError('No data in data_dict attribute. Consider calling read_DTA_file().')
+        
+        self.first_dict = {}
+        
+        # get idx of negative positive value intersection
+        z_imag = self.data_dict['Zimag (ohm)']
+        intersection_idx = 0
+        for idx, point in enumerate(z_imag):
+            if point > 0 and z_imag[idx+1] <= 0:
+                intersection_idx = idx+1
+                break
+        
+        # make new dictionary containing only first quadrant data
+        for key in self.data_dict.keys():
+            self.first_dict[key] = self.data_dict[key][intersection_idx:]
 
 class EisCycle:
     """
