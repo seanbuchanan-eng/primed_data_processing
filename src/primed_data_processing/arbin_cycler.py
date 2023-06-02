@@ -135,16 +135,7 @@ class ArbinCycle:
         return f'ArbinCycle name: {self.name}, cycle_index: {self.cycle_index}, test number: {self.test_number}'
 
     def __iter__(self):
-        self.iter_index = 0
-        return self
-        
-    def __next__(self) -> ArbinStep:
-        if self.iter_index < len(self.steps):
-            step = self.steps[self.iter_index]
-            self.iter_index += 1
-            return step
-        else:
-            raise StopIteration
+        return iter(self.steps)
         
     def __getitem__(self, step_number) -> list[ArbinStep]:
         step_list = []
@@ -296,16 +287,7 @@ class ArbinCell:
         return f'ArbinCycle cell #: {self.cell_number}, channel #: {self.channel_number}'
 
     def __iter__(self):
-        self.iter_index = 0
-        return self
-        
-    def __next__(self) -> ArbinCycle:
-        if self.iter_index < len(self.cycles):
-            cycle = self.cycles[self.iter_index]
-            self.iter_index += 1
-            return cycle
-        else:
-            raise StopIteration
+        return iter(self.cycles)
 
     def __getitem__(self, args) -> ArbinCycle:
         # returns a single cycle object
@@ -401,3 +383,128 @@ class ArbinCell:
             if cycle.cycle_index == cycle_number:
                 return cycle
         raise ValueError("Cycle number doesn't exist")
+    
+class ArbinBatch:
+    """
+    Represents a batch of cells that are tested together.
+
+    The cells in the batch can have different testing parameters and chemistries,
+    the only requirement is that they are tested in the chamber at the same time.
+    """
+
+    def __init__(self, name: str='', cells: list[ArbinCell]=[]) -> None:
+        self.name = name
+        self.cells = cells[:]
+
+    def __str__(self) -> str:
+        return f'ArbinBatch name: {self.name}'
+    
+    def __iter__(self):
+        return iter(self.cells)
+    
+    def __getitem__(self, args) -> ArbinCell:
+        # returns a single cell object
+        if isinstance(args, int):
+            return self.get_cell(args)
+        
+        # returns a list of all cell objects within
+        # the range of the slice.
+        elif isinstance(args, slice):
+            range_start = 0
+            range_stop = self._get_largest_index() + 1
+            range_step = 1
+            if args.start: range_start = args.start
+            if args.stop: range_stop = args.stop
+            if args.step: range_step = args.step
+            
+            cell_list = []
+            for cell in range(range_start, range_stop, range_step):
+                # use try block to allow missing steps in range to be skipped.
+                try:
+                    cell_list.append(self.get_cell(cell))
+                except ValueError:
+                    pass
+            if cell_list:
+                return cell_list
+            else:
+                raise IndexError('No cells within range')
+        
+        # returns a list of all step objects within the range
+        # of the third slice, within the cycles of the second slice,
+        # within the cells of the first slice.
+        elif isinstance(args, tuple):
+            if len(args) > 3:
+                raise IndexError("Too many index arguments. Maximum is 3.")
+            
+            # get cells slice/index
+            if isinstance(args[0], int):
+                cell_list = [self[args[0]]]
+            else:
+                cell_list = self[args[0]]
+            output_list = []
+            for cell in cell_list:
+                try:
+                    # ensure that passed type is not a tuple
+                    # if there are only 2 args
+                    if len(args) == 3:
+                        # list of steps
+                        output_list += cell[args[1:]]
+                    else:
+                        # cell[int] returns an ArbinCycle
+                        # so we must handle it to avoid calling iter()
+                        if isinstance(args[1], int):
+                            output_list.append(cell[args[1]])
+                        # cell[slice] returns a list
+                        else:
+                            output_list += cell[args[1]]
+                        
+                except IndexError:
+                    # allow user to have empty cycles within the range.
+                    # an error will only be thrown if ther is no steps
+                    # or cycles in ANY of the cells and cycles indexed.
+                    pass
+            if output_list:
+                return output_list
+            else:
+                raise IndexError("No cells within range.")
+        else:
+            raise TypeError("Invalid argument type.")
+
+    def __len__(self):
+        return len(self.cells)
+
+    def __del__(self):
+        # Had to clear the cell cache to fix a memory leak problem
+        # It's my understanding that implementing __del__ isn't the 
+        # best practice but I tried weakref's and it wasn't working
+        self.cells.clear()
+
+    def _get_largest_index(self) -> int:
+        """
+        Returns
+        -------
+        ``int``
+            largest cell number of all the cell indices.
+        """
+        max_idx = 0
+        for cell in self.cells:
+            if cell.cell_number > max_idx:
+                max_idx = cell.cell_number
+        return max_idx
+    
+    def add_cell(self, cell) -> None:
+        """
+        Add a cell object to the batch.
+
+        Parameters
+        ----------
+        ``cell`` \: ``ArbinCell``
+            ``ArbinCell`` to be added to the object.
+        """
+        self.cells.append(cell)
+
+    def get_cell(self, cell_number: int) -> ArbinCycle:
+        for cell in self.cells:
+            if cell.cell_number == cell_number:
+                return cell
+        raise ValueError("Cell number doesn't exist")
