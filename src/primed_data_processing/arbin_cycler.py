@@ -165,6 +165,8 @@ class ArbinCycle:
                 return step_list
             else:
                 raise IndexError('No steps within range')
+        else:
+            raise TypeError("Invalid argument type.")
             
     def __len__(self):
         return len(self.steps)
