@@ -25,6 +25,7 @@ def test_non_data_attributes(eis_sweep):
     assert eis_sweep.name == 'eis cycle1'
     assert eis_sweep.step_index == 14
     assert eis_sweep._headers == ['Pt (#)','Time (s)','Freq (Hz)','Zreal (ohm)','Zimag (ohm)','Zsig (V)','Zmod (ohm)','Zphz (degrees)','Idc (A)','Vdc (V)', 'IERange (#)']
+    assert eis_sweep.date_time == '10/23/2021 7:20:25'
 
 def test_data_dict(eis_sweep):
     # test data dict
