@@ -88,8 +88,15 @@ class EisSweep:
 
         with open(file_path) as file:
             read = False
+            date = ''
+            time = ''
             for line in file:
-                if line.startswith('	Pt'):
+                if line.startswith('DATE'):
+                    date = line.split()[2]
+                elif line.startswith('TIME'):
+                    time = line.split()[2]
+                    self.date_time = date + ' ' + time
+                elif line.startswith('	Pt'):
                     self._headers = line.split()
                 elif line.startswith('	#'):
                     units = line.split()
