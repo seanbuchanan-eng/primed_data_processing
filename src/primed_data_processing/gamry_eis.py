@@ -21,28 +21,10 @@ class EisSweep:
         State-of-charge of battery when eis measurement was taken. 0 <= soc <=1.
     ``step_index`` \: ``int``
         Index of the EIS step in the arbin test schedule. Default is 0.
-    ``pt`` \: ``list[int]``
-        Point numbers of the measurements.
-    ``time`` \: ``list[float]``
-        Duration of the measurements in seconds.
-    ``freq`` \: ``list[float]``
-        Frequency of the measurements in Hz.
-    ``z_real`` \: ``list[float]``
-        Real portion of the batteries measured impedance response in Ohms.
-    ``z_imag`` \: ``list[float]``
-        Imaginary portion of the batteries measured impedance response in Ohms.
-    ``z_sig`` \: ``list[float]``
-        Measured in Volts.
-    ``z_mod`` \: ``list[float]``
-        Magnitude of the batteries measured impedance response in Ohms.
-    ``z_phase`` \: ``list[float]``
-        Phase of the batteries measured impedance response in degrees.
-    ``idc`` \: ``list[float]``
-        Measured DC current in Amps.
-    ``vdc`` \: ``list[float]``
-        Measured DC voltage in Volts.
-    ``ie_reange`` \: ``list[int]``
-        Not sure. For now it is just a column in the Gamry DTA file.
+    ``date_time`` \: ``str``
+        Date and time of the measurement.
+   ``data_dict`` \: ``dict[str: list[float]]``
+        Dictionary containing the EIS measurement data.
         
     Methods
     -------
