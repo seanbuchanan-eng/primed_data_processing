@@ -24,3 +24,11 @@ Data Downloader
 
 .. automodule:: primed_data_processing.cellbuilder
     :members:
+
+.. _utilsapi:
+
+Utility Functions
+-----------------
+
+.. automodule:: primed_data_processing.primed_utils
+    :members:

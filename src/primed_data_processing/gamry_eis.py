@@ -7,11 +7,10 @@ import pandas as pd
 
 class EisSweep:
     """
-    Represents a single EIS sweep.
-
-    An EIS sweep is a sweep from some start frequency to some end frequency with a 
-    specified number of data points within each frequency decade. The sweep occurs
-    at a specified SOC.
+    Represents a single EIS sweep. 
+    
+    An EIS sweep is a sweep from some start frequency to some end frequency with a specified 
+    number of data points within each frequency decade. The sweep occurs at a specified SOC.
 
     Attributes
     ----------
@@ -23,7 +22,7 @@ class EisSweep:
         Index of the EIS step in the arbin test schedule. Default is 0.
     ``date_time`` \: ``str``
         Date and time of the measurement.
-   ``data_dict`` \: ``dict[str: list[float]]``
+    ``data_dict`` \: ``dict[str: list[float]]``
         Dictionary containing the EIS measurement data.
         
     Methods
