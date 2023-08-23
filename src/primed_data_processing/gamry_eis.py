@@ -7,11 +7,10 @@ import pandas as pd
 
 class EisSweep:
     """
-    Represents a single EIS sweep.
-
-    An EIS sweep is a sweep from some start frequency to some end frequency with a 
-    specified number of data points within each frequency decade. The sweep occurs
-    at a specified SOC.
+    Represents a single EIS sweep. 
+    
+    An EIS sweep is a sweep from some start frequency to some end frequency with a specified 
+    number of data points within each frequency decade. The sweep occurs at a specified SOC.
 
     Attributes
     ----------
@@ -21,28 +20,10 @@ class EisSweep:
         State-of-charge of battery when eis measurement was taken. 0 <= soc <=1.
     ``step_index`` \: ``int``
         Index of the EIS step in the arbin test schedule. Default is 0.
-    ``pt`` \: ``list[int]``
-        Point numbers of the measurements.
-    ``time`` \: ``list[float]``
-        Duration of the measurements in seconds.
-    ``freq`` \: ``list[float]``
-        Frequency of the measurements in Hz.
-    ``z_real`` \: ``list[float]``
-        Real portion of the batteries measured impedance response in Ohms.
-    ``z_imag`` \: ``list[float]``
-        Imaginary portion of the batteries measured impedance response in Ohms.
-    ``z_sig`` \: ``list[float]``
-        Measured in Volts.
-    ``z_mod`` \: ``list[float]``
-        Magnitude of the batteries measured impedance response in Ohms.
-    ``z_phase`` \: ``list[float]``
-        Phase of the batteries measured impedance response in degrees.
-    ``idc`` \: ``list[float]``
-        Measured DC current in Amps.
-    ``vdc`` \: ``list[float]``
-        Measured DC voltage in Volts.
-    ``ie_reange`` \: ``list[int]``
-        Not sure. For now it is just a column in the Gamry DTA file.
+    ``date_time`` \: ``str``
+        Date and time of the measurement.
+    ``data_dict`` \: ``dict[str: list[float]]``
+        Dictionary containing the EIS measurement data.
         
     Methods
     -------
@@ -62,22 +43,17 @@ class EisSweep:
         self.name = name
         self.soc = soc
         self.step_index = step_index
-        self.pt = []
-        self.time = []
-        self.freq = []
-        self.z_real = []
-        self.z_imag = []
-        self.z_sig = []
-        self.z_mod = []
-        self.z_phase = []
-        self.idc = []
-        self.vdc = []
-        self.ie_range = []
-        self._headers = []
+        self.data_dict = {}
         self._data_already_read = False
 
     def __str__(self):
         return f'EisSweep object name: {self.name}, soc: {self.soc}, step_index: {self.step_index}'
+    
+    def __getitem__(self, key: str) -> list:
+        return self.data_dict[key]
+
+    def __setitem__(self, key: str, value: list) -> None:
+        self.data_dict[key] = value
 
     def read_DTA_file(self, file_path: str) -> None:
         """
@@ -93,28 +69,41 @@ class EisSweep:
 
         with open(file_path) as file:
             read = False
+            date = ''
+            time = ''
             for line in file:
-                if line.startswith('	Pt'):
+                if line.startswith('DATE'):
+                    date = line.split()[2]
+                elif line.startswith('TIME'):
+                    time = line.split()[2]
+                    self.date_time = date + ' ' + time
+                elif line.startswith('	Pt'):
                     self._headers = line.split()
                 elif line.startswith('	#'):
                     units = line.split()
                     for idx, header in enumerate(self._headers):
-                        self._headers[idx] = header + ' (' + units[idx] + ')'
+                        # remove degree symbol from phz header
+                        if header == 'Zphz':
+                            self._headers[idx] = 'Zphz (degrees)'
+                        else:
+                            self._headers[idx] = header + ' (' + units[idx] + ')'
+                    for header in self._headers:
+                        self.data_dict[header] = []
                 elif line.startswith('	0'):
                    read = True
                 if read == True:
                     data = line.split()
-                    self.pt.append(int(data[0]))
-                    self.time.append(float(data[1]))
-                    self.freq.append(float(data[2]))
-                    self.z_real.append(float(data[3]))
-                    self.z_imag.append(float(data[4]))
-                    self.z_sig.append(float(data[5]))
-                    self.z_mod.append(float(data[6]))
-                    self.z_phase.append(float(data[7]))
-                    self.idc.append(float(data[8]))
-                    self.vdc.append(float(data[9]))
-                    self.ie_range.append(int(data[10]))
+                    self.data_dict[self._headers[0]].append(int(data[0]))
+                    self.data_dict[self._headers[1]].append(float(data[1]))
+                    self.data_dict[self._headers[2]].append(float(data[2]))
+                    self.data_dict[self._headers[3]].append(float(data[3]))
+                    self.data_dict[self._headers[4]].append(float(data[4]))
+                    self.data_dict[self._headers[5]].append(float(data[5]))
+                    self.data_dict[self._headers[6]].append(float(data[6]))
+                    self.data_dict[self._headers[7]].append(float(data[7]))
+                    self.data_dict[self._headers[8]].append(float(data[8]))
+                    self.data_dict[self._headers[9]].append(float(data[9]))
+                    self.data_dict[self._headers[10]].append(int(data[10]))
 
         self._data_already_read = True
 
@@ -126,10 +115,7 @@ class EisSweep:
             Nx11 array where the columns are pt, time, freq, zreal, zimag, zsig, zmod,
             zphase, idc, vdc, ierange
         """
-        return np.array(
-            [self.pt, self.time, self.freq, self.z_real, self.z_imag,
-            self.z_sig, self.z_mod, self.z_phase, self.idc, self.vdc, 
-            self.ie_range]).T
+        return self.get_data_as_dataframe().to_numpy()
 
     def get_data_as_dataframe(self) -> pd.DataFrame:
         """
@@ -139,8 +125,30 @@ class EisSweep:
             Nx11 table where column headers are pt, time, freq, zreal, zimag, zsig,
             zmod, zphase, idc, vdc, ierange
         """
-        return pd.DataFrame(self.get_data_as_array(), columns=self._headers)
+        return pd.DataFrame(self.data_dict)
+    
+    def make_first_quadrant_dict(self) -> None:
+        """
+        Makes an attribute named ``first_dict`` that contains only the data of the
+        first quadrant of the Nyquist plot.
+        """
+        # gaurding against empty dict
+        if not self.data_dict:
+            raise AttributeError('No data in data_dict attribute. Consider calling read_DTA_file().')
         
+        self.first_dict = {}
+        
+        # get idx of negative positive value intersection
+        z_imag = self.data_dict['Zimag (ohm)']
+        intersection_idx = 0
+        for idx, point in enumerate(z_imag):
+            if point > 0 and z_imag[idx+1] <= 0:
+                intersection_idx = idx+1
+                break
+        
+        # make new dictionary containing only first quadrant data
+        for key in self.data_dict.keys():
+            self.first_dict[key] = self.data_dict[key][intersection_idx:]
 
 class EisCycle:
     """
