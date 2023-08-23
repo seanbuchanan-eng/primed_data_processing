@@ -1,0 +1,583 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="utf-8"/>
+<title>primed_data_processing.primed_utils | Primed Data Processing 0.1.0 documentation</title>
+<link href="../../_static/pygments.css" rel="stylesheet"/>
+<link href="../../_static/theme.39dcd091ff2d4f33bf46.css" rel="stylesheet"/>
+<link href="../../search.html" rel="search" title="Search"/>
+<link href="../../genindex.html" rel="index" title="Index"/>
+</head>
+<body class="antialiased text-gray scroll-smooth">
+<div class="min-h-screen xl:h-screen flex flex-col xl:grid xl:grid-layout print:block print:h-auto" data-action="keydown@window-&gt;search#focus " data-controller="sidebar search " id="page">
+<a class="block transition -translate-x-full focus:translate-x-0 opacity-0 focus:opacity-100 text-xl bg-white p-4 z-20 absolute top-0 left-0 h-14" href="#primed-data-processing-primed-utils" title="Skip navigation links">Skip to content</a>
+<header class="grid-area-header z-10 h-14 fixed w-full top-0 print:hidden">
+<div class="bg-gray-dark shadow-md flex items-center h-full xl:px-2 relative"><div class="flex items-center">
+<button class="xl:hidden h-14 w-14 leading-14 text-gray-100 hover:bg-gray-700 hover:text-brand focus:outline-none focus:bg-gray-700 focus:text-brand" data-action="sidebar#open" data-sidebar-target="hamburger">
+<span class="sr-only">Open navigation menu</span>
+<svg aria-hidden="true" class="fill-current h-8 w-8" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
+</button><a class="hover:bg-gray-700 focus:bg-gray-700 focus:outline-none" href="../../index.html" title="Back to homepage"><span class="hidden lg:inline-block shrink-0 font-medium text-gray-100 mx-5 leading-14 tracking-wider">Primed Data Processing 0.1.0 documentation</span>
+</a></div><div class="flex justify-end items-center flex-1"><form action="../../search.html" class="flex print:hidden justify-between items-center leading-14 md:ml-4 bg-gray-dark text-gray-300 focus-within:bg-gray-50 focus-within:text-gray-800 focus-within:absolute focus-within:inset-x-0 focus-within:top-0 md:focus-within:w-full md:focus-within:static z-10" data-action="click-&gt;search#focusSearchInput" id="searchbox" method="get">
+<button aria-label="Get search results" class="text-inherit h-14 w-14" tabindex="-1">
+<svg aria-hidden="true" class="fill-current stroke-current h-8 w-8" stroke-width="0.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
+</button>
+<input aria-label="Search the docs" class="pr-2 bg-transparent text-inherit focus:outline-none w-0 md:w-auto focus:w-full transition-all duration-100" data-search-target="searchInput" id="search-input" name="q" placeholder="Search the docs" type="search"/>
+</form></div>
+</div>
+</header>
+<aside class="grid-area-sidebar h-full fixed pt-14 xl:relative inset-y-0 left-0 z-20 xl:z-0 print:hidden overflow-y-auto transition-all transform transform-gpu -translate-x-full opacity-0 duration-300 xl:translate-x-0 xl:opacity-100" data-sidebar-target="sidebar">
+<nav class="h-full overflow-y-auto bg-white text-gray-600 pt-8 flex flex-col" role="navigation">
+<div class="nav-toc flex-1 pl-6"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><div class="nav-link"><svg class="expand" data-action="click-&gt;sidebar#expand keydown-&gt;sidebar#expandKeyPressed" tabindex="0" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../tests.html">PRIMED Test Info</a></div><ul>
+<li class="toctree-l2"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../tests.html#general-format">General Format</a></div></li>
+<li class="toctree-l2"><div class="nav-link"><svg class="expand" data-action="click-&gt;sidebar#expand keydown-&gt;sidebar#expandKeyPressed" tabindex="0" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../tests.html#b6-mollicel-p42a-test">B6: Mollicel P42A Test</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../tests.html#characterization-cycle">Characterization Cycle</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../tests.html#test-10-degradation-cycle">Test 10 Degradation Cycle</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../tests.html#test-11-degradation-cycle">Test 11 Degradation Cycle</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../tests.html#test-12-degradation-cycle">Test 12 Degradation Cycle</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../tests.html#b6-test-index">B6 Test Index</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><div class="nav-link"><svg class="expand" data-action="click-&gt;sidebar#expand keydown-&gt;sidebar#expandKeyPressed" tabindex="0" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../usage.html">Usage</a></div><ul>
+<li class="toctree-l2"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../usage.html#installation">Installation</a></div></li>
+<li class="toctree-l2"><div class="nav-link"><svg class="expand" data-action="click-&gt;sidebar#expand keydown-&gt;sidebar#expandKeyPressed" tabindex="0" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../usage.html#quick-start">Quick Start</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../usage.html#working-with-cycler-data">Working With Cycler Data</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../usage.html#working-with-gamry-eis-data">Working With Gamry EIS Data</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../usage.html#merging-arbin-and-gamry-data">Merging Arbin and Gamry Data</a></div></li>
+</ul>
+</li>
+<li class="toctree-l2"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../usage.html#advanced-data-importing">Advanced Data Importing</a></div></li>
+</ul>
+</li>
+<li class="toctree-l1"><div class="nav-link"><svg class="expand" data-action="click-&gt;sidebar#expand keydown-&gt;sidebar#expandKeyPressed" tabindex="0" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html">API Documentation</a></div><ul>
+<li class="toctree-l2"><div class="nav-link"><svg class="expand" data-action="click-&gt;sidebar#expand keydown-&gt;sidebar#expandKeyPressed" tabindex="0" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#module-primed_data_processing.arbin_cycler">Working With Cycler Data</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#primed_data_processing.arbin_cycler.ArbinBatch"><code class="docutils literal notranslate">ArbinBatch</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#primed_data_processing.arbin_cycler.ArbinCell"><code class="docutils literal notranslate">ArbinCell</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#primed_data_processing.arbin_cycler.ArbinCycle"><code class="docutils literal notranslate">ArbinCycle</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#primed_data_processing.arbin_cycler.ArbinStep"><code class="docutils literal notranslate">ArbinStep</code></a></div></li>
+</ul>
+</li>
+<li class="toctree-l2"><div class="nav-link"><svg class="expand" data-action="click-&gt;sidebar#expand keydown-&gt;sidebar#expandKeyPressed" tabindex="0" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#module-primed_data_processing.gamry_eis">Working With EIS Data</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#primed_data_processing.gamry_eis.EisCell"><code class="docutils literal notranslate">EisCell</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#primed_data_processing.gamry_eis.EisCycle"><code class="docutils literal notranslate">EisCycle</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#primed_data_processing.gamry_eis.EisSweep"><code class="docutils literal notranslate">EisSweep</code></a></div></li>
+</ul>
+</li>
+<li class="toctree-l2"><div class="nav-link"><svg class="expand" data-action="click-&gt;sidebar#expand keydown-&gt;sidebar#expandKeyPressed" tabindex="0" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#module-primed_data_processing.cellbuilder">Data Downloader</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#primed_data_processing.cellbuilder.CellBuilder"><code class="docutils literal notranslate">CellBuilder</code></a></div></li>
+</ul>
+</li>
+<li class="toctree-l2"><div class="nav-link"><svg class="expand" data-action="click-&gt;sidebar#expand keydown-&gt;sidebar#expandKeyPressed" tabindex="0" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#module-primed_data_processing.primed_utils">Utility Functions</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#primed_data_processing.primed_utils.assign_cell_cycle_numbers"><code class="docutils literal notranslate">assign_cell_cycle_numbers()</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#primed_data_processing.primed_utils.assign_soe"><code class="docutils literal notranslate">assign_soe()</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#primed_data_processing.primed_utils.assign_soh"><code class="docutils literal notranslate">assign_soh()</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#primed_data_processing.primed_utils.assign_temp"><code class="docutils literal notranslate">assign_temp()</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#primed_data_processing.primed_utils.filter_by_soh"><code class="docutils literal notranslate">filter_by_soh()</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#primed_data_processing.primed_utils.filter_by_temp"><code class="docutils literal notranslate">filter_by_temp()</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#primed_data_processing.primed_utils.get_first_quadrant_data"><code class="docutils literal notranslate">get_first_quadrant_data()</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#primed_data_processing.primed_utils.load_B6T10"><code class="docutils literal notranslate">load_B6T10()</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#primed_data_processing.primed_utils.load_B6T10_eis"><code class="docutils literal notranslate">load_B6T10_eis()</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#primed_data_processing.primed_utils.load_B6T11"><code class="docutils literal notranslate">load_B6T11()</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../api.html#primed_data_processing.primed_utils.load_files_from_dir"><code class="docutils literal notranslate">load_files_from_dir()</code></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<button class="text-4xl text-gray-800 p-4 bottom-0 hover:text-brand xl:hidden focus:text-brand self-center" data-action="sidebar#close" title="Close navigation menu">
+<span class="sr-only">Close navigation menu</span>
+<svg aria-hidden="true" class="fill-current stroke-current h-6 w-6" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</aside>
+<main class="px-4 pt-14 xl:ml-fluid grid-area-main overflow-y-auto flex flex-col flex-1 h-full mx-0 md:mx-auto xl:mr-0"><nav aria-label="breadcrumbs" class="print:hidden mt-12 text-sm text-gray-light" role="navigation">
+<a class="text-gray-light text-sm hover:text-gray-dark font-medium focus:text-gray-dark" href="../../index.html">Primed Data Processing 0.1.0 documentation</a>
+<span class="mr-1">/</span><a class="text-gray-light text-sm hover:text-gray-dark" href="../index.html">Module code</a>
+<span class="mr-1">/</span><span aria-current="page">primed_data_processing.primed_utils</span>
+</nav>
+<article class="flex-1" role="main">
+<h1>Source code for primed_data_processing.primed_utils</h1><div class="highlight"><pre>
+<code><span class="sd">"""</span>
+<span class="sd">Author: Sean Buchanan</span>
+
+<span class="sd">This module contains useful functions for processing Arbin and Gamry battery data.</span>
+
+<span class="sd">These functions come up continuously in practice from users so they have been </span>
+<span class="sd">added to a useful common location.</span>
+<span class="sd">"""</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">.cellbuilder</span> <span class="kn">import</span> <span class="n">CellBuilder</span>
+<span class="kn">from</span> <span class="nn">.arbin_cycler</span> <span class="kn">import</span> <span class="n">ArbinBatch</span><span class="p">,</span> <span class="n">ArbinCell</span><span class="p">,</span> <span class="n">ArbinStep</span>
+<span class="kn">from</span> <span class="nn">.gamry_eis</span> <span class="kn">import</span> <span class="n">EisSweep</span><span class="p">,</span> <span class="n">EisCycle</span><span class="p">,</span> <span class="n">EisCell</span>
+
+<span class="c1">#################################### ARBIN ######################################################</span>
+
+<div class="viewcode-block" id="load_files_from_dir"><a class="viewcode-back" href="../../api.html#primed_data_processing.primed_utils.load_files_from_dir">[docs]</a><span class="k">def</span> <span class="nf">load_files_from_dir</span><span class="p">(</span><span class="n">cell_builder</span><span class="p">:</span> <span class="n">CellBuilder</span><span class="p">,</span> 
+                        <span class="n">arbin_cells</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">ArbinCell</span><span class="p">],</span> 
+                        <span class="n">sorted_dir</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">bytes</span><span class="p">],</span> 
+                        <span class="n">prepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
+                        <span class="n">folder_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
+                        <span class="n">steps</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span> 
+                        <span class="n">channel_idx</span><span class="p">:</span> <span class="nb">int</span>
+                        <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Load all csv files in a directory.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ``cell_builder`` \: ``CellBuilder``</span>
+<span class="sd">        ``CellBuilder`` used to access data reading methods.</span>
+<span class="sd">    ``arbin_cells`` \: ``list[ArbinCell]``</span>
+<span class="sd">        list of arbin cells to add data to.</span>
+<span class="sd">    ``sorted_dir`` \: ``list[bytes]``</span>
+<span class="sd">        list of files in the directory sorted by chronological order.</span>
+<span class="sd">    ``prepath`` \: ``str``</span>
+<span class="sd">        path to the folder containing all battery data.</span>
+<span class="sd">    ``folder_name`` \: ``str``</span>
+<span class="sd">        name of the folder to be read.</span>
+<span class="sd">    ``steps`` \: ``dict[str: list[int]]``</span>
+<span class="sd">        dictionary of steps to be read.</span>
+<span class="sd">    ``channel_idx`` \: ``int``</span>
+<span class="sd">        Which channel to load data from.</span>
+<span class="sd">    """</span>
+
+    <span class="c1"># loop over all files in the current directory</span>
+    <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">sorted_dir</span><span class="p">:</span>
+        <span class="c1"># get filename</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">fsdecode</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+        <span class="c1"># ignore .xlsx files</span>
+        <span class="k">if</span> <span class="n">filename</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">'.csv'</span><span class="p">):</span>
+            <span class="c1"># process file with CellBuilder method</span>
+            <span class="n">cell_builder</span><span class="o">.</span><span class="n">read_B6_csv_data</span><span class="p">(</span>
+                <span class="n">arbin_cells</span><span class="p">[</span><span class="n">channel_idx</span><span class="p">],</span> <span class="c1"># current cell being processed</span>
+                <span class="n">prepath</span><span class="o">+</span><span class="n">folder_name</span><span class="o">+</span><span class="n">filename</span><span class="p">,</span> <span class="c1"># path to file being processed</span>
+                <span class="n">steps</span><span class="p">,</span> <span class="c1"># get OCV charge and discharg steps</span>
+                <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span> <span class="c1"># minimal printouts</span>
+            <span class="p">)</span></div>
+
+<div class="viewcode-block" id="load_B6T10"><a class="viewcode-back" href="../../api.html#primed_data_processing.primed_utils.load_B6T10">[docs]</a><span class="k">def</span> <span class="nf">load_B6T10</span><span class="p">(</span><span class="n">cell_builder</span><span class="p">:</span> <span class="n">CellBuilder</span><span class="p">,</span> 
+               <span class="n">prepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
+               <span class="n">channel_numbers</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">,</span> 
+               <span class="n">cell_numbers</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">,</span> 
+               <span class="n">steps</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span>
+               <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ArbinBatch</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Load the entire B6T10/B6T15 dataset.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ``cell_builder`` \: ``CellBuilder``</span>
+<span class="sd">        ``CellBuilder`` used to access data reading methods.</span>
+<span class="sd">    ``prepath`` \: ``str``</span>
+<span class="sd">        path to the folder containing all battery data.</span>
+<span class="sd">    ``channel_numbers`` \: ``list | tuple``</span>
+<span class="sd">        Channel numbers to be loaded.</span>
+<span class="sd">    ``cell_numbers`` \: ``list | tuple``</span>
+<span class="sd">        Cell number of channels to be loaded. Required to be</span>
+<span class="sd">        in order correspondin to the channel numbers.</span>
+<span class="sd">    ``steps`` \: ``dict[str: list[int]]``</span>
+<span class="sd">        Steps to be loaded.</span>
+<span class="sd">    """</span>
+    <span class="c1"># list for holding processed cells</span>
+    <span class="n">arbin_cells</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># loop over channel numbers</span>
+    <span class="k">for</span> <span class="n">channel_idx</span><span class="p">,</span> <span class="n">channel</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">channel_numbers</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Processing channel </span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+
+        <span class="c1"># append new cell to cells processed cells list</span>
+        <span class="n">arbin_cells</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ArbinCell</span><span class="p">(</span><span class="n">cell_numbers</span><span class="p">[</span><span class="n">channel_idx</span><span class="p">],</span> <span class="n">channel</span><span class="p">))</span>
+
+        <span class="c1"># make subfolder name in raws folder</span>
+        <span class="c1"># two folders are needed because the tests were modified part way through</span>
+        <span class="c1"># hence two seperate folders contain the "different" data.</span>
+        <span class="n">T10_folder_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'B6T10V0_1_2_3_4_9_10_11_12_13_14_15_16/Channel_</span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s1">/'</span>
+        <span class="n">T15_folder_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'B6T15V0_1_2_3_4_9_10_11_12_13_14_15_16/Channel_</span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s1">/'</span>
+
+        <span class="c1"># get directory of the current folder</span>
+        <span class="n">T10_directory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">fsencode</span><span class="p">(</span><span class="n">prepath</span><span class="o">+</span><span class="n">T10_folder_name</span><span class="p">)</span>
+        <span class="n">T15_directory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">fsencode</span><span class="p">(</span><span class="n">prepath</span><span class="o">+</span><span class="n">T15_folder_name</span><span class="p">)</span>
+
+        <span class="c1"># sort directory into chronological order for read_B6_csv_data()</span>
+        <span class="n">T10_sorted_dir</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">T10_directory</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">file</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">fsdecode</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="n">T15_sorted_dir</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">T15_directory</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">file</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">fsdecode</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)[</span><span class="mi">1</span><span class="p">]))</span>
+
+        <span class="c1"># load the files using cellbuilder</span>
+        <span class="n">load_files_from_dir</span><span class="p">(</span><span class="n">cell_builder</span><span class="p">,</span> <span class="n">arbin_cells</span><span class="p">,</span> <span class="n">T10_sorted_dir</span><span class="p">,</span> <span class="n">prepath</span><span class="p">,</span> <span class="n">T10_folder_name</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="n">channel_idx</span><span class="p">)</span>
+        <span class="n">load_files_from_dir</span><span class="p">(</span><span class="n">cell_builder</span><span class="p">,</span> <span class="n">arbin_cells</span><span class="p">,</span> <span class="n">T15_sorted_dir</span><span class="p">,</span> <span class="n">prepath</span><span class="p">,</span> <span class="n">T15_folder_name</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="n">channel_idx</span><span class="p">)</span>
+
+    <span class="c1"># load cells into a batch</span>
+    <span class="k">return</span> <span class="n">ArbinBatch</span><span class="p">(</span><span class="n">cells</span><span class="o">=</span><span class="n">arbin_cells</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="load_B6T11"><a class="viewcode-back" href="../../api.html#primed_data_processing.primed_utils.load_B6T11">[docs]</a><span class="k">def</span> <span class="nf">load_B6T11</span><span class="p">(</span><span class="n">cell_builder</span><span class="p">:</span> <span class="n">CellBuilder</span><span class="p">,</span> 
+               <span class="n">prepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
+               <span class="n">channel_numbers</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">,</span> 
+               <span class="n">cell_numbers</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">,</span> 
+               <span class="n">steps</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span>
+               <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ArbinBatch</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Load the entire B6T11/B6T16 dataset.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ``cell_builder`` \: ``CellBuilder``</span>
+<span class="sd">        ``CellBuilder`` used to access data reading methods.</span>
+<span class="sd">    ``prepath`` \: ``str``</span>
+<span class="sd">        path to the folder containing all battery data.</span>
+<span class="sd">    ``channel_numbers`` \: ``list | tuple``</span>
+<span class="sd">        Channel numbers to be loaded.</span>
+<span class="sd">    ``cell_numbers`` \: ``list | tuple``</span>
+<span class="sd">        Cell number of channels to be loaded. Required to be</span>
+<span class="sd">        in order correspondin to the channel numbers.</span>
+<span class="sd">    ``steps`` \: ``dict[str: list[int]]``</span>
+<span class="sd">        Steps to be loaded.</span>
+<span class="sd">    """</span>
+    <span class="c1"># list for holding processed cells</span>
+    <span class="n">arbin_cells</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># loop over channel numbers</span>
+    <span class="k">for</span> <span class="n">channel_idx</span><span class="p">,</span> <span class="n">channel</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">channel_numbers</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Processing channel </span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+
+        <span class="c1"># append new cell to cells processed cells list</span>
+        <span class="n">arbin_cells</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ArbinCell</span><span class="p">(</span><span class="n">cell_numbers</span><span class="p">[</span><span class="n">channel_idx</span><span class="p">],</span> <span class="n">channel</span><span class="p">))</span>
+
+        <span class="c1"># make subfolder name in raws folder</span>
+        <span class="c1"># two folders are needed because the tests were modified part way through</span>
+        <span class="c1"># hence two seperate folders contain the "different" data.</span>
+        <span class="n">T11_folder_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'B6T11V0_6_7/Channel_</span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s1">/'</span>
+        <span class="n">T16_folder_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'B6T16V0_6_7/Channel_</span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s1">/'</span>
+
+        <span class="c1"># get directory of the current folder</span>
+        <span class="n">T11_directory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">fsencode</span><span class="p">(</span><span class="n">prepath</span><span class="o">+</span><span class="n">T11_folder_name</span><span class="p">)</span>
+        <span class="n">T16_directory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">fsencode</span><span class="p">(</span><span class="n">prepath</span><span class="o">+</span><span class="n">T16_folder_name</span><span class="p">)</span>
+
+        <span class="c1"># sort directory into chronological order for read_B6_csv_data()</span>
+        <span class="n">T10_sorted_dir</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">T11_directory</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">file</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">fsdecode</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="n">T15_sorted_dir</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">T16_directory</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">file</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">fsdecode</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)[</span><span class="mi">1</span><span class="p">]))</span>
+
+        <span class="c1"># load the files using cellbuilder</span>
+        <span class="n">load_files_from_dir</span><span class="p">(</span><span class="n">cell_builder</span><span class="p">,</span> <span class="n">arbin_cells</span><span class="p">,</span> <span class="n">T10_sorted_dir</span><span class="p">,</span> <span class="n">prepath</span><span class="p">,</span> <span class="n">T11_folder_name</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="n">channel_idx</span><span class="p">)</span>
+        <span class="n">load_files_from_dir</span><span class="p">(</span><span class="n">cell_builder</span><span class="p">,</span> <span class="n">arbin_cells</span><span class="p">,</span> <span class="n">T15_sorted_dir</span><span class="p">,</span> <span class="n">prepath</span><span class="p">,</span> <span class="n">T16_folder_name</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="n">channel_idx</span><span class="p">)</span>
+
+    <span class="c1"># load cells into a batch</span>
+    <span class="k">return</span> <span class="n">ArbinBatch</span><span class="p">(</span><span class="n">cells</span><span class="o">=</span><span class="n">arbin_cells</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="assign_soh"><a class="viewcode-back" href="../../api.html#primed_data_processing.primed_utils.assign_soh">[docs]</a><span class="k">def</span> <span class="nf">assign_soh</span><span class="p">(</span><span class="n">step</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">soh_step</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">nom_cap</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">ArbinBatch</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Calculate and assign the SOH to step ``step`` in an attribute named ``soh``</span>
+<span class="sd">    for all cells in ``batch``.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ``step`` \: ``int``</span>
+<span class="sd">        Step number to have soh added to</span>
+<span class="sd">    ``soh_step`` \: ``int``</span>
+<span class="sd">        Step containing the full discharge data used to calculate the soh.</span>
+<span class="sd">    ``nom_cap`` \: ``float``</span>
+<span class="sd">        Nominal capacity of the battery used for the test in Ah.</span>
+<span class="sd">    ``batch`` \: ``ArbinBatch``</span>
+<span class="sd">        Batch of cells containing the desired data.</span>
+<span class="sd">    """</span>
+    <span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">batch</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">cycle</span> <span class="ow">in</span> <span class="n">cell</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">soh</span> <span class="o">=</span> <span class="n">cycle</span><span class="p">[</span><span class="n">soh_step</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">'Discharge_Capacity(Ah)'</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">nom_cap</span>
+            <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+                <span class="c1"># allow for cycles without a soh_step</span>
+                <span class="n">soh</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">cycle</span><span class="p">[</span><span class="n">step</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+                <span class="c1"># allow for cycles without a step</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">cycle</span><span class="p">[</span><span class="n">step</span><span class="p">]:</span>
+                <span class="k">continue</span>
+            <span class="k">for</span> <span class="n">cycle_step</span> <span class="ow">in</span> <span class="n">cycle</span><span class="p">[</span><span class="n">step</span><span class="p">]:</span>
+                <span class="n">cycle_step</span><span class="o">.</span><span class="n">soh</span> <span class="o">=</span> <span class="n">soh</span></div>
+
+<div class="viewcode-block" id="assign_soe"><a class="viewcode-back" href="../../api.html#primed_data_processing.primed_utils.assign_soe">[docs]</a><span class="k">def</span> <span class="nf">assign_soe</span><span class="p">(</span><span class="n">step</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">soe_step</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">nom_e_cap</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">ArbinBatch</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Calculate and assign the SOE to step ``step`` in an attribute named ``soe``</span>
+<span class="sd">    for all cells in ``batch``.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ``step`` \: ``int``</span>
+<span class="sd">        Step number to have soe added to</span>
+<span class="sd">    ``soe_step`` \: ``int``</span>
+<span class="sd">        Step containing the full discharge data used to calculate the soe.</span>
+<span class="sd">    ``nom_e_cap`` \: ``float``</span>
+<span class="sd">        Nominal energy capacity of the battery used for the test in Wh.</span>
+<span class="sd">    ``batch`` \: ``ArbinBatch``</span>
+<span class="sd">        Batch of cells containing the desired data.</span>
+<span class="sd">    """</span>
+    <span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">batch</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">cycle</span> <span class="ow">in</span> <span class="n">cell</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">soe</span> <span class="o">=</span> <span class="n">cycle</span><span class="p">[</span><span class="n">soe_step</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">'Discharge_Energy(Wh)'</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">nom_e_cap</span>
+            <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+                <span class="c1"># allow for cycles without a soe_step</span>
+                <span class="n">soe</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">cycle</span><span class="p">[</span><span class="n">step</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+                <span class="c1"># allow for cycles without a step</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">cycle</span><span class="p">[</span><span class="n">step</span><span class="p">]:</span>
+                <span class="k">continue</span>
+            <span class="k">for</span> <span class="n">cycle_step</span> <span class="ow">in</span> <span class="n">cycle</span><span class="p">[</span><span class="n">step</span><span class="p">]:</span>
+                <span class="n">cycle_step</span><span class="o">.</span><span class="n">soe</span> <span class="o">=</span> <span class="n">soe</span></div>
+
+<div class="viewcode-block" id="filter_by_soh"><a class="viewcode-back" href="../../api.html#primed_data_processing.primed_utils.filter_by_soh">[docs]</a><span class="k">def</span> <span class="nf">filter_by_soh</span><span class="p">(</span><span class="n">steps</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">ArbinStep</span><span class="p">]</span> <span class="o">|</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">ArbinStep</span><span class="p">]],</span> 
+                  <span class="n">soh_range</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> 
+                  <span class="n">soh_lower</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">77</span><span class="p">,</span> 
+                  <span class="n">soh_upper</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">101</span>
+                  <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">ArbinStep</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Filter steps in ``steps`` such that only the steps with a SOH within the bounds of </span>
+<span class="sd">    lower and upper are retained.</span>
+
+<span class="sd">    This function requires that all steps in ``steps`` have a soh attribute; see </span>
+<span class="sd">    ``assign_soh``.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ``steps`` \: ``list[ArbinStep] | dict[int: list[ArbinStep]]``</span>
+<span class="sd">        ArbinSteps containing soh attributes to be sorted</span>
+<span class="sd">    ``soh_range`` \: ``float``</span>
+<span class="sd">        Width of SOH bins to sort ``steps`` into.</span>
+<span class="sd">        If ``soh_range`` = 1 then ``steps`` will be sorted into bins</span>
+<span class="sd">        from 77-78,78-79....,100-101 etc.</span>
+<span class="sd">    ``soh_lower`` \: ``int``, optional</span>
+<span class="sd">        Lower SOH bound for sorting.</span>
+<span class="sd">    ``soh_upper`` \: ``int``</span>
+<span class="sd">        Upper SOH bound for sorting.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ``dict[int: list[ArbinStep]]``</span>
+<span class="sd">        Dictionary with key of the lower bound for each range and </span>
+<span class="sd">        values of all the steps that match that soh range.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">steps</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="n">steps</span> <span class="o">=</span> <span class="p">[</span><span class="n">elem</span> <span class="k">for</span> <span class="n">sublist</span> <span class="ow">in</span> <span class="n">steps</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">sublist</span><span class="p">]</span>
+        
+    <span class="n">soh_filtered</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">lower</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">soh_lower</span><span class="p">,</span> <span class="n">soh_upper</span><span class="p">,</span> <span class="n">soh_range</span><span class="p">):</span>
+        <span class="n">upper</span> <span class="o">=</span> <span class="p">(</span><span class="n">lower</span> <span class="o">+</span> <span class="n">soh_range</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span>
+        <span class="n">lower</span> <span class="o">=</span> <span class="n">lower</span><span class="o">/</span><span class="mi">100</span>
+        <span class="n">soh_filtered</span><span class="p">[</span><span class="n">lower</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+            <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">lower</span> <span class="o">&lt;</span> <span class="n">x</span><span class="o">.</span><span class="n">soh</span> <span class="o">&lt;</span> <span class="n">upper</span><span class="p">),</span> <span class="n">steps</span><span class="p">)</span>
+            <span class="p">)</span>
+    <span class="k">return</span> <span class="n">soh_filtered</span></div>
+
+<div class="viewcode-block" id="filter_by_temp"><a class="viewcode-back" href="../../api.html#primed_data_processing.primed_utils.filter_by_temp">[docs]</a><span class="k">def</span> <span class="nf">filter_by_temp</span><span class="p">(</span><span class="n">step</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> 
+                   <span class="n">temp_range</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">list</span><span class="p">,</span> 
+                   <span class="n">batch</span><span class="p">:</span> <span class="n">ArbinBatch</span>
+                   <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">ArbinStep</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Filter steps in ``batch`` such that only the steps with a temperature within the bounds of </span>
+<span class="sd">    ``temp_range`` are retained.</span>
+
+<span class="sd">    This function requires that all steps in ``steps`` have a temperature attribute; see </span>
+<span class="sd">    ``assign_temp``.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ``step`` \: ``int``</span>
+<span class="sd">        Step number in batch object that has the temperature attribute.</span>
+<span class="sd">    ``temp_range`` \: ``tuple | list``</span>
+<span class="sd">        Element zero is the lower temperature bound and element 1 is the upper temperature bound.</span>
+<span class="sd">    ``batch`` \: ``ArbinBatch``</span>
+<span class="sd">        ArbinBatch that contains the test data. See ``primed_data_processing`` package.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ``dict[int: list[ArbinStep]]``</span>
+<span class="sd">        Dictionary with key of the cell channel number and values of list of </span>
+<span class="sd">        step data within the temperature range.</span>
+<span class="sd">    """</span>
+    <span class="n">temp_filtered</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">batch</span><span class="p">:</span>
+        <span class="n">temp_filtered</span><span class="p">[</span><span class="n">cell</span><span class="o">.</span><span class="n">channel_number</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">cycle</span> <span class="ow">in</span> <span class="n">cell</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">round</span><span class="p">(</span><span class="n">cycle</span><span class="p">[</span><span class="n">step</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">temperature</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">temp_range</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> \
+                    <span class="ow">and</span> <span class="nb">round</span><span class="p">(</span><span class="n">cycle</span><span class="p">[</span><span class="n">step</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">temperature</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">temp_range</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+                    <span class="n">temp_filtered</span><span class="p">[</span><span class="n">cell</span><span class="o">.</span><span class="n">channel_number</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cycle</span><span class="p">[</span><span class="n">step</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="c1"># allow for cycles without step step</span>
+                <span class="k">pass</span>
+    <span class="k">return</span> <span class="n">temp_filtered</span></div>
+
+<div class="viewcode-block" id="assign_cell_cycle_numbers"><a class="viewcode-back" href="../../api.html#primed_data_processing.primed_utils.assign_cell_cycle_numbers">[docs]</a><span class="k">def</span> <span class="nf">assign_cell_cycle_numbers</span><span class="p">(</span><span class="n">batch</span><span class="p">:</span> <span class="n">ArbinBatch</span><span class="p">,</span> <span class="n">step_idx</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Assign cell and cycle numbers to the steps for ease of access when working with data.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ``batch`` \: ``ArbinBatch``</span>
+<span class="sd">        ``ArbinBatch`` object containing the test data.</span>
+<span class="sd">    ``step_idx`` \: ``int``</span>
+<span class="sd">        Step number to assign cell and cycle numbers too.</span>
+<span class="sd">    """</span>
+    <span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">batch</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">cycle</span> <span class="ow">in</span> <span class="n">cell</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">step_idx</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">cycle</span><span class="p">[</span><span class="n">step_idx</span><span class="p">]</span>
+                <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+                    <span class="c1"># allow for cycles with no step</span>
+                    <span class="k">continue</span>
+                <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="n">cycle</span><span class="p">[</span><span class="n">step_idx</span><span class="p">]:</span>
+                    <span class="n">step</span><span class="o">.</span><span class="n">cell_number</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">cell_number</span>
+                    <span class="n">step</span><span class="o">.</span><span class="n">channel_number</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">channel_number</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="n">cycle</span><span class="p">:</span>
+                    <span class="n">step</span><span class="o">.</span><span class="n">cell_number</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">cell_number</span>
+                    <span class="n">step</span><span class="o">.</span><span class="n">channel_number</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">channel_number</span></div>
+
+<span class="c1">######################################################## GAMRY ######################################################</span>
+
+<div class="viewcode-block" id="load_B6T10_eis"><a class="viewcode-back" href="../../api.html#primed_data_processing.primed_utils.load_B6T10_eis">[docs]</a><span class="k">def</span> <span class="nf">load_B6T10_eis</span><span class="p">(</span><span class="n">T10_eis_folder</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
+                   <span class="n">T15_eis_folder</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
+                   <span class="n">channel_numbers</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">,</span> 
+                   <span class="n">cell_numbers</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="nb">tuple</span>
+                   <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">EisCell</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Load eis data from batch B6 and test 10 and 15 into a data object.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ``T10_eis_folder`` \: ``str``</span>
+<span class="sd">        Absolute path to the folder containing test 10 eis data.</span>
+<span class="sd">    ``T15_eis_folder`` \: ``str``</span>
+<span class="sd">        Absolute path to the folder containing test 15 eis data.</span>
+<span class="sd">    ``channel_numbers`` \: ``list | tuple``</span>
+<span class="sd">        Iterable containing the channel numbers to be read into the data object.</span>
+<span class="sd">    ``cell_numbers`` \: ``list | tuple``</span>
+<span class="sd">        Iterable containing the cell numbers to be read into the data object.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ``list[EisCell]``</span>
+<span class="sd">        List of ``EisCell`` objects for each cell in the folder directories.</span>
+<span class="sd">    """</span>
+    <span class="n">eis_cells</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">channel_idx</span><span class="p">,</span> <span class="n">channel</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">channel_numbers</span><span class="p">):</span>
+        <span class="n">cycle</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">eis_cycles</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">while</span> <span class="n">cycle</span> <span class="o">&lt;=</span> <span class="mi">46</span><span class="p">:</span>
+            <span class="n">eis_sweep</span> <span class="o">=</span> <span class="n">EisSweep</span><span class="p">(</span><span class="sa">f</span><span class="s1">'eis cycle</span><span class="si">{</span><span class="n">cycle</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">cycle</span> <span class="o">&lt;=</span> <span class="mi">23</span><span class="p">:</span>
+                    <span class="n">file_prepath</span> <span class="o">=</span> <span class="n">T10_eis_folder</span>
+                <span class="k">if</span> <span class="n">cycle</span> <span class="o">&gt;</span> <span class="mi">23</span><span class="p">:</span>
+                    <span class="n">file_prepath</span> <span class="o">=</span> <span class="n">T15_eis_folder</span>
+                <span class="k">if</span> <span class="n">cycle</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">channel</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+                    <span class="n">eis_sweep</span><span class="o">.</span><span class="n">read_DTA_file</span><span class="p">(</span><span class="n">file_prepath</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">'B6T10V0_Chan00</span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s1">_Cycle00</span><span class="si">{</span><span class="n">cycle</span><span class="si">}</span><span class="s1">_Step014.DTA'</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">cycle</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">channel</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+                    <span class="n">eis_sweep</span><span class="o">.</span><span class="n">read_DTA_file</span><span class="p">(</span><span class="n">file_prepath</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">'B6T10V0_Chan0</span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s1">_Cycle00</span><span class="si">{</span><span class="n">cycle</span><span class="si">}</span><span class="s1">_Step014.DTA'</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">cycle</span> <span class="o">&lt;</span> <span class="mi">100</span> <span class="ow">and</span> <span class="n">channel</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+                    <span class="n">eis_sweep</span><span class="o">.</span><span class="n">read_DTA_file</span><span class="p">(</span><span class="n">file_prepath</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">'B6T10V0_Chan00</span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s1">_Cycle0</span><span class="si">{</span><span class="n">cycle</span><span class="si">}</span><span class="s1">_Step014.DTA'</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">cycle</span> <span class="o">&lt;</span> <span class="mi">100</span> <span class="ow">and</span> <span class="n">channel</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+                    <span class="n">eis_sweep</span><span class="o">.</span><span class="n">read_DTA_file</span><span class="p">(</span><span class="n">file_prepath</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">'B6T10V0_Chan0</span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s1">_Cycle0</span><span class="si">{</span><span class="n">cycle</span><span class="si">}</span><span class="s1">_Step014.DTA'</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s1">'Cycle number greater than 100!'</span><span class="p">)</span>
+
+                <span class="n">eis_cycles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">EisCycle</span><span class="p">(</span><span class="n">cycle</span><span class="p">,</span> <span class="p">[</span><span class="n">eis_sweep</span><span class="p">],</span> <span class="sa">f</span><span class="s1">'cycle_object_</span><span class="si">{</span><span class="n">cycle</span><span class="si">}</span><span class="s1">'</span><span class="p">))</span>
+                <span class="n">cycle</span> <span class="o">+=</span> <span class="mi">2</span>
+
+            <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+                <span class="n">cycle</span> <span class="o">+=</span> <span class="mi">2</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Warning... File B6T10V0_Chan00</span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s1">_Cycle00</span><span class="si">{</span><span class="n">cycle</span><span class="si">}</span><span class="s1">_Step014.DTA doesn</span><span class="se">\'</span><span class="s1">t exist!'</span><span class="p">)</span>
+            
+        <span class="n">eis_cells</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">EisCell</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s1">'eis step for channel</span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> 
+            <span class="n">eis_cycles</span><span class="o">=</span><span class="n">eis_cycles</span><span class="p">,</span> 
+            <span class="n">cell_number</span><span class="o">=</span><span class="n">cell_numbers</span><span class="p">[</span><span class="n">channel_idx</span><span class="p">],</span> 
+            <span class="n">channel_number</span><span class="o">=</span><span class="n">channel</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="n">eis_cycles</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">return</span> <span class="n">eis_cells</span></div>
+
+<div class="viewcode-block" id="assign_temp"><a class="viewcode-back" href="../../api.html#primed_data_processing.primed_utils.assign_temp">[docs]</a><span class="k">def</span> <span class="nf">assign_temp</span><span class="p">(</span><span class="n">eis_step</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> 
+                <span class="n">temp_step</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> 
+                <span class="n">batch</span><span class="p">:</span> <span class="n">ArbinBatch</span><span class="p">,</span>
+                <span class="n">default_step_idx</span><span class="p">:</span> <span class="nb">int</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+                <span class="n">default_temp_idx</span><span class="p">:</span> <span class="nb">int</span><span class="o">=-</span><span class="mi">1</span>
+                <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Assign cell temperature to the eis step from the temperature of ``temp_step``.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ``eis_step`` \: ``int``</span>
+<span class="sd">        Step number of the eis step</span>
+<span class="sd">    ``temp_step`` \: ``int``</span>
+<span class="sd">        Step number of the step with temperature data.</span>
+<span class="sd">    ``batch`` \: ``ArbinBatch``</span>
+<span class="sd">        ``ArbinBatch`` object with the test data.</span>
+<span class="sd">    ``default_step_idx`` \: ``int``, optional</span>
+<span class="sd">        Index of the list of steps within the cycle. Default is -1.</span>
+<span class="sd">    ``default_temp_idx`` \: ``int``, optional</span>
+<span class="sd">        Index of the list of temperatures within the step. Default is -1.</span>
+<span class="sd">    """</span>
+    <span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">batch</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">cycle</span> <span class="ow">in</span> <span class="n">cell</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="c1"># assign the last temperature of the step before EIS to the eis step</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cycle</span><span class="p">[</span><span class="n">temp_step</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING: More than one temperature step in cycle </span><span class="si">{</span><span class="n">cycle</span><span class="o">.</span><span class="n">cycle_index</span><span class="si">}</span><span class="s2">. The last step will be taken by default."</span><span class="p">)</span>
+                <span class="n">temperature</span> <span class="o">=</span> <span class="n">cycle</span><span class="p">[</span><span class="n">temp_step</span><span class="p">][</span><span class="n">default_step_idx</span><span class="p">][</span><span class="s1">'Battery_Temperature(C)'</span><span class="p">][</span><span class="n">default_temp_idx</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+                <span class="n">temperature</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">cycle</span><span class="p">[</span><span class="n">eis_step</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="n">cycle</span><span class="p">[</span><span class="n">eis_step</span><span class="p">]:</span>
+                <span class="n">step</span><span class="o">.</span><span class="n">temperature</span> <span class="o">=</span> <span class="n">temperature</span></div>
+
+<div class="viewcode-block" id="get_first_quadrant_data"><a class="viewcode-back" href="../../api.html#primed_data_processing.primed_utils.get_first_quadrant_data">[docs]</a><span class="k">def</span> <span class="nf">get_first_quadrant_data</span><span class="p">(</span><span class="n">step</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">ArbinBatch</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Make a dictionary containing only the first quadrant eis data.</span>
+<span class="sd">    See ``ArbinStep.make_first_quadrant_dict()``.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ``step`` \: ``int``</span>
+<span class="sd">        Step number to get first quadrant data from.</span>
+<span class="sd">    ``batch`` \: ``ArbinBatch``</span>
+<span class="sd">        ``ArbinBatch`` object containing the test data.</span>
+<span class="sd">    """</span>
+    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="n">batch</span><span class="p">[:,:,</span><span class="n">step</span><span class="p">]:</span>
+        <span class="n">step</span><span class="o">.</span><span class="n">make_first_quadrant_dict</span><span class="p">()</span></div>
+</code></pre></div>
+</article>
+<footer>
+<div class="mt-20 mb-4 text-sm text-gray-700 print:mt-4">© 2023, Sean Buchanan Made with <a href="https://www.sphinx-doc.org">Sphinx 6.1.3</a></div>
+</footer></main>
+<button class="fixed bottom-0 right-0 z-20 opacity-0 p-4 m-4 tracking-wide bg-gray-900 text-gray-100 transition transform transform-gpu duration-500 translate-y-full" data-action="search#hideSnackbar" data-search-target="snackbar">
+  Clear highlights
+</button><div class="fixed hidden inset-0 bg-black bg-opacity-50" data-action="click-&gt;sidebar#close" data-sidebar-target="screen">
+</div>
+</div>
+<script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+<script src="../../_static/doctools.js"></script>
+<script src="../../_static/sphinx_highlight.js"></script>
+<script src="../../_static/theme.b62e1ded0c8c099a2d47.js"></script>
+</body>
+</html>

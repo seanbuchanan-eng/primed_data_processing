@@ -1,0 +1,452 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="utf-8"/>
+<meta content="Docutils 0.19: https://docutils.sourceforge.io/" name="generator"/>
+<title>Usage | Primed Data Processing 0.1.0 documentation</title>
+<link href="_static/pygments.css" rel="stylesheet"/>
+<link href="_static/theme.39dcd091ff2d4f33bf46.css" rel="stylesheet"/>
+<link href="search.html" rel="search" title="Search"/>
+<link href="genindex.html" rel="index" title="Index"/>
+<link href="api.html" rel="next" title="API Documentation"/>
+<link href="tests.html" rel="prev" title="PRIMED Test Info"/>
+</head>
+<body class="antialiased text-gray scroll-smooth">
+<div class="min-h-screen xl:h-screen flex flex-col xl:grid xl:grid-layout print:block print:h-auto" data-action="keydown@window-&gt;search#focus " data-controller="sidebar search " id="page">
+<a class="block transition -translate-x-full focus:translate-x-0 opacity-0 focus:opacity-100 text-xl bg-white p-4 z-20 absolute top-0 left-0 h-14" href="#usage" title="Skip navigation links">Skip to content</a>
+<header class="grid-area-header z-10 h-14 fixed w-full top-0 print:hidden">
+<div class="bg-gray-dark shadow-md flex items-center h-full xl:px-2 relative"><div class="flex items-center">
+<button class="xl:hidden h-14 w-14 leading-14 text-gray-100 hover:bg-gray-700 hover:text-brand focus:outline-none focus:bg-gray-700 focus:text-brand" data-action="sidebar#open" data-sidebar-target="hamburger">
+<span class="sr-only">Open navigation menu</span>
+<svg aria-hidden="true" class="fill-current h-8 w-8" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
+</button><a class="hover:bg-gray-700 focus:bg-gray-700 focus:outline-none" href="index.html" title="Back to homepage"><span class="hidden lg:inline-block shrink-0 font-medium text-gray-100 mx-5 leading-14 tracking-wider">Primed Data Processing 0.1.0 documentation</span>
+</a></div><div class="flex justify-end items-center flex-1"><form action="search.html" class="flex print:hidden justify-between items-center leading-14 md:ml-4 bg-gray-dark text-gray-300 focus-within:bg-gray-50 focus-within:text-gray-800 focus-within:absolute focus-within:inset-x-0 focus-within:top-0 md:focus-within:w-full md:focus-within:static z-10" data-action="click-&gt;search#focusSearchInput" id="searchbox" method="get">
+<button aria-label="Get search results" class="text-inherit h-14 w-14" tabindex="-1">
+<svg aria-hidden="true" class="fill-current stroke-current h-8 w-8" stroke-width="0.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
+</button>
+<input aria-label="Search the docs" class="pr-2 bg-transparent text-inherit focus:outline-none w-0 md:w-auto focus:w-full transition-all duration-100" data-search-target="searchInput" id="search-input" name="q" placeholder="Search the docs" type="search"/>
+</form></div>
+</div>
+</header>
+<aside class="grid-area-sidebar h-full fixed pt-14 xl:relative inset-y-0 left-0 z-20 xl:z-0 print:hidden overflow-y-auto transition-all transform transform-gpu -translate-x-full opacity-0 duration-300 xl:translate-x-0 xl:opacity-100" data-sidebar-target="sidebar">
+<nav class="h-full overflow-y-auto bg-white text-gray-600 pt-8 flex flex-col" role="navigation">
+<div class="nav-toc flex-1 pl-6"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><div class="nav-link"><svg class="expand" data-action="click-&gt;sidebar#expand keydown-&gt;sidebar#expandKeyPressed" tabindex="0" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" data-action="click-&gt;sidebar#close" href="tests.html">PRIMED Test Info</a></div><ul>
+<li class="toctree-l2"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="tests.html#general-format">General Format</a></div></li>
+<li class="toctree-l2"><div class="nav-link"><svg class="expand" data-action="click-&gt;sidebar#expand keydown-&gt;sidebar#expandKeyPressed" tabindex="0" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" data-action="click-&gt;sidebar#close" href="tests.html#b6-mollicel-p42a-test">B6: Mollicel P42A Test</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="tests.html#characterization-cycle">Characterization Cycle</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="tests.html#test-10-degradation-cycle">Test 10 Degradation Cycle</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="tests.html#test-11-degradation-cycle">Test 11 Degradation Cycle</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="tests.html#test-12-degradation-cycle">Test 12 Degradation Cycle</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="tests.html#b6-test-index">B6 Test Index</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current expanded"><div class="nav-link"><svg class="expand" data-action="click-&gt;sidebar#expand keydown-&gt;sidebar#expandKeyPressed" tabindex="0" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="current reference internal" data-action="click-&gt;sidebar#close" href="#">Usage</a></div><ul>
+<li class="toctree-l2"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="#installation">Installation</a></div></li>
+<li class="toctree-l2"><div class="nav-link"><svg class="expand" data-action="click-&gt;sidebar#expand keydown-&gt;sidebar#expandKeyPressed" tabindex="0" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" data-action="click-&gt;sidebar#close" href="#quick-start">Quick Start</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="#working-with-cycler-data">Working With Cycler Data</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="#working-with-gamry-eis-data">Working With Gamry EIS Data</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="#merging-arbin-and-gamry-data">Merging Arbin and Gamry Data</a></div></li>
+</ul>
+</li>
+<li class="toctree-l2"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="#advanced-data-importing">Advanced Data Importing</a></div></li>
+</ul>
+</li>
+<li class="toctree-l1"><div class="nav-link"><svg class="expand" data-action="click-&gt;sidebar#expand keydown-&gt;sidebar#expandKeyPressed" tabindex="0" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" data-action="click-&gt;sidebar#close" href="api.html">API Documentation</a></div><ul>
+<li class="toctree-l2"><div class="nav-link"><svg class="expand" data-action="click-&gt;sidebar#expand keydown-&gt;sidebar#expandKeyPressed" tabindex="0" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" data-action="click-&gt;sidebar#close" href="api.html#module-primed_data_processing.arbin_cycler">Working With Cycler Data</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="api.html#primed_data_processing.arbin_cycler.ArbinBatch"><code class="docutils literal notranslate">ArbinBatch</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="api.html#primed_data_processing.arbin_cycler.ArbinCell"><code class="docutils literal notranslate">ArbinCell</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="api.html#primed_data_processing.arbin_cycler.ArbinCycle"><code class="docutils literal notranslate">ArbinCycle</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="api.html#primed_data_processing.arbin_cycler.ArbinStep"><code class="docutils literal notranslate">ArbinStep</code></a></div></li>
+</ul>
+</li>
+<li class="toctree-l2"><div class="nav-link"><svg class="expand" data-action="click-&gt;sidebar#expand keydown-&gt;sidebar#expandKeyPressed" tabindex="0" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" data-action="click-&gt;sidebar#close" href="api.html#module-primed_data_processing.gamry_eis">Working With EIS Data</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="api.html#primed_data_processing.gamry_eis.EisCell"><code class="docutils literal notranslate">EisCell</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="api.html#primed_data_processing.gamry_eis.EisCycle"><code class="docutils literal notranslate">EisCycle</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="api.html#primed_data_processing.gamry_eis.EisSweep"><code class="docutils literal notranslate">EisSweep</code></a></div></li>
+</ul>
+</li>
+<li class="toctree-l2"><div class="nav-link"><svg class="expand" data-action="click-&gt;sidebar#expand keydown-&gt;sidebar#expandKeyPressed" tabindex="0" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" data-action="click-&gt;sidebar#close" href="api.html#module-primed_data_processing.cellbuilder">Data Downloader</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="api.html#primed_data_processing.cellbuilder.CellBuilder"><code class="docutils literal notranslate">CellBuilder</code></a></div></li>
+</ul>
+</li>
+<li class="toctree-l2"><div class="nav-link"><svg class="expand" data-action="click-&gt;sidebar#expand keydown-&gt;sidebar#expandKeyPressed" tabindex="0" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" data-action="click-&gt;sidebar#close" href="api.html#module-primed_data_processing.primed_utils">Utility Functions</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="api.html#primed_data_processing.primed_utils.assign_cell_cycle_numbers"><code class="docutils literal notranslate">assign_cell_cycle_numbers()</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="api.html#primed_data_processing.primed_utils.assign_soe"><code class="docutils literal notranslate">assign_soe()</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="api.html#primed_data_processing.primed_utils.assign_soh"><code class="docutils literal notranslate">assign_soh()</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="api.html#primed_data_processing.primed_utils.assign_temp"><code class="docutils literal notranslate">assign_temp()</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="api.html#primed_data_processing.primed_utils.filter_by_soh"><code class="docutils literal notranslate">filter_by_soh()</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="api.html#primed_data_processing.primed_utils.filter_by_temp"><code class="docutils literal notranslate">filter_by_temp()</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="api.html#primed_data_processing.primed_utils.get_first_quadrant_data"><code class="docutils literal notranslate">get_first_quadrant_data()</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="api.html#primed_data_processing.primed_utils.load_B6T10"><code class="docutils literal notranslate">load_B6T10()</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="api.html#primed_data_processing.primed_utils.load_B6T10_eis"><code class="docutils literal notranslate">load_B6T10_eis()</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="api.html#primed_data_processing.primed_utils.load_B6T11"><code class="docutils literal notranslate">load_B6T11()</code></a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="api.html#primed_data_processing.primed_utils.load_files_from_dir"><code class="docutils literal notranslate">load_files_from_dir()</code></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<button class="text-4xl text-gray-800 p-4 bottom-0 hover:text-brand xl:hidden focus:text-brand self-center" data-action="sidebar#close" title="Close navigation menu">
+<span class="sr-only">Close navigation menu</span>
+<svg aria-hidden="true" class="fill-current stroke-current h-6 w-6" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</aside>
+<main class="px-4 pt-14 xl:ml-fluid grid-area-main overflow-y-auto flex flex-col flex-1 h-full mx-0 md:mx-auto xl:mr-0"><nav aria-label="breadcrumbs" class="print:hidden mt-12 text-sm text-gray-light" role="navigation">
+<a class="text-gray-light text-sm hover:text-gray-dark font-medium focus:text-gray-dark" href="index.html">Primed Data Processing 0.1.0 documentation</a>
+<span class="mr-1">/</span><span aria-current="page">Usage</span>
+</nav>
+<article class="flex-1" role="main">
+<section id="usage">
+<h1>Usage<a aria-label="Click to copy this link" class="headerlink tooltipped tooltipped-ne" data-action="click-&gt;clipboard#copyHeaderLink" data-controller="clipboard" href="#usage">¶</a></h1>
+<p>This section explains how to use the <code class="docutils literal notranslate">primed_data_processing</code> package.</p>
+<section id="installation">
+<span id="id1"></span><h2>Installation<a aria-label="Click to copy this link" class="headerlink tooltipped tooltipped-ne" data-action="click-&gt;clipboard#copyHeaderLink" data-controller="clipboard" href="#installation">¶</a></h2>
+<p><code class="docutils literal notranslate">primed_data_processing</code> requires Python 3.10+ and can be installed using pip:</p>
+<div class="code-wrapper" data-controller="code">
+<div class="code-header">
+<span class="code-lang">console</span></div>
+<div class="highlight"><pre><code><span class="go">pip install primed-data-processing</span>
+</code></pre></div></div>
+</section>
+<section id="quick-start">
+<span id="quickstart"></span><h2>Quick Start<a aria-label="Click to copy this link" class="headerlink tooltipped tooltipped-ne" data-action="click-&gt;clipboard#copyHeaderLink" data-controller="clipboard" href="#quick-start">¶</a></h2>
+<p>The primed_data_processing package consists of 7 classes separated into 3 modules.
+The modules manage Arbin cycler data, Gamry EIS data, and process raw data files
+into the module classes.</p>
+<p>The easiest way to begin working with the PRIMED data is through the <a class="reference internal" href="api.html#cellbuilderapi"><span class="std std-ref">cellbuilder</span></a>
+module. The cellbuilder module contains a <a class="reference internal" href="api.html#primed_data_processing.cellbuilder.CellBuilder" title="primed_data_processing.cellbuilder.CellBuilder"><code class="xref py py-class docutils literal notranslate">CellBuilder</code></a>
+class with methods for processing Arbin and Gamry data from specific tests performed at PRIMED,
+and building the corresponding Arbin and EIS data structures from the raw data.</p>
+<p>To get to know the classes in this package we will start with a simple example with data that can be
+found on the <a class="reference external" href="https://github.com/seanbuchanan-eng/primed_data_processing" rel="nofollow noopener">GitHub repo<svg aria-hidden="true" class="external-link-icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path></svg></a>. We will start
+with the Arbin cycler data and then work towards incorporating EIS data.</p>
+<p>All of the following code examples can be found on the GitHub repo in <code class="docutils literal notranslate">examples/</code>.</p>
+<section id="working-with-cycler-data">
+<h3>Working With Cycler Data<a aria-label="Click to copy this link" class="headerlink tooltipped tooltipped-ne" data-action="click-&gt;clipboard#copyHeaderLink" data-controller="clipboard" href="#working-with-cycler-data">¶</a></h3>
+<p>To start, import the required modules and classes from <code class="docutils literal notranslate">primed_data_processing</code>.</p>
+<div class="code-wrapper" data-controller="code">
+<div class="code-header">
+<span class="code-lang">python</span></div>
+<div class="highlight"><pre><code><span class="c1"># import modules and classes</span>
+<span class="kn">from</span> <span class="nn">primed_data_processing.cellbuilder</span> <span class="kn">import</span> <span class="n">CellBuilder</span>
+<span class="kn">from</span> <span class="nn">primed_data_processing.arbin_cycler</span> <span class="kn">import</span> <span class="n">ArbinCell</span><span class="p">,</span> <span class="n">ArbinCycle</span><span class="p">,</span> <span class="n">ArbinStep</span>
+</code></pre></div></div>
+<p>Now build a data manager using the provided classes in <code class="docutils literal notranslate">primed_data_processing</code>. The .csv file that
+we will be working with is from a test done with Mollicel P42A batteries at PRIMED, for more info see
+<a class="reference internal" href="tests.html#testb6"><span class="std std-ref">test info</span></a>. The data file can be found on the
+<a class="reference external" href="https://github.com/seanbuchanan-eng/primed_data_processing" rel="nofollow noopener">GitHub repo<svg aria-hidden="true" class="external-link-icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path></svg></a> under
+test/cycler_testing_data. This test contained multiple steps, cycles, and cells. However,
+we have selected a single file from a single cell. Because it is a file from a previous test
+at PRIMED we can use the <code class="docutils literal notranslate">CellBuilder</code> class to process the data for us. An example using the
+test data is shown below.</p>
+<div class="code-wrapper" data-controller="code">
+<div class="code-header">
+<span class="code-lang">python</span></div>
+<div class="highlight"><pre><code><span class="n">cell_builder</span> <span class="o">=</span> <span class="n">CellBuilder</span><span class="p">()</span>
+<span class="c1"># instantiate a ArbinCell object</span>
+<span class="n">cell</span> <span class="o">=</span> <span class="n">ArbinCell</span><span class="p">(</span><span class="n">cell_number</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">channel_number</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">local_datapath</span> <span class="o">=</span> <span class="s1">'path/to/B6T10V0_1_2_3_4_9_10_11_12_13_14_15_16_Channel_1.1.csv'</span>
+
+<span class="c1"># select the steps that we want to load.</span>
+<span class="c1"># See PRIMED Test Info in the documentation for step explanations</span>
+<span class="n">steps</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'characterization'</span><span class="p">:</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span>
+    <span class="s1">'degradation'</span><span class="p">:</span> <span class="p">[</span><span class="mi">29</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="c1"># use a method in cell_builder to process the data for us and store in cell.</span>
+<span class="n">cell_builder</span><span class="o">.</span><span class="n">read_B6_csv_data</span><span class="p">(</span><span class="n">cell</span><span class="o">=</span><span class="n">cell</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="n">local_datapath</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">steps</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Now that we’ve processed and loaded the data, <code class="docutils literal notranslate">cell</code> will contain all of the cycles from the
+data file and each cycle will contain all of the steps with their corresponding data that
+occurred in that step. We can then view and manipulate the data using the methods provided in
+the <a class="reference internal" href="api.html#arbinapi"><span class="std std-ref">API documentation</span></a>.</p>
+<p>All Arbin cycler objects in this package are iterable; therefore, there is two ways to access the
+cycles and steps within <code class="docutils literal notranslate">cell</code>. To show an example we will use the <code class="docutils literal notranslate">get_data_as_dataframe()</code>
+to get the data as a Pandas DataFrame for step 10.</p>
+<div class="code-wrapper" data-controller="code">
+<div class="code-header">
+<span class="code-lang">python</span></div>
+<div class="highlight"><pre><code><span class="c1"># Using loops</span>
+<span class="k">for</span> <span class="n">cycle</span> <span class="ow">in</span> <span class="n">cell</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">cycle</span><span class="o">.</span><span class="n">cycle_index</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="n">cycle</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">step</span><span class="o">.</span><span class="n">step_index</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span>
+                <span class="n">step</span><span class="o">.</span><span class="n">get_data_as_dataframe</span><span class="p">()</span>
+
+<span class="c1"># Using object attributes</span>
+<span class="n">cell</span><span class="o">.</span><span class="n">cycles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_step</span><span class="p">(</span><span class="mi">10</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_data_as_dataframe</span><span class="p">()</span>
+</code></pre></div></div>
+<p>As shown above we can use either loops or the provided method <code class="docutils literal notranslate">get_step(step number)</code> in the cycle
+object to get a list of the step <cite>step number</cite> that occur in the cycle.</p>
+<p>Adding, observing, and manipulating data is mostly confined to the
+<a class="reference internal" href="api.html#primed_data_processing.arbin_cycler.ArbinStep" title="primed_data_processing.arbin_cycler.ArbinStep"><code class="xref py py-class docutils literal notranslate">ArbinStep</code></a> object. The <code class="docutils literal notranslate">ArbinStep</code> object has the
+methods <a class="reference internal" href="api.html#primed_data_processing.arbin_cycler.ArbinStep.get_data_as_dataframe" title="primed_data_processing.arbin_cycler.ArbinStep.get_data_as_dataframe"><code class="xref py py-meth docutils literal notranslate">get_data_as_dataframe()</code></a> and
+<a class="reference internal" href="api.html#primed_data_processing.arbin_cycler.ArbinStep.get_data_as_array" title="primed_data_processing.arbin_cycler.ArbinStep.get_data_as_array"><code class="xref py py-meth docutils literal notranslate">get_data_as_array()</code></a> for observing data. The
+data can then be manipulated using the returned data structures. Additionally, <code class="docutils literal notranslate">ArbinStep</code> itself acts
+like a python dictionary so that the data can be accessed using key-word identifiers. The keys are based
+on what headers are in the original data files. To get a list of the headers there is two options.</p>
+<div class="code-wrapper" data-controller="code">
+<div class="code-header">
+<span class="code-lang">python</span></div>
+<div class="highlight"><pre><code><span class="c1"># Using cell (preferred method)</span>
+<span class="n">cell</span><span class="o">.</span><span class="n">headers</span>
+
+<span class="c1"># Using the data_dict attribute</span>
+<span class="n">cell</span><span class="o">.</span><span class="n">cycles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_step</span><span class="p">(</span><span class="mi">10</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</code></pre></div></div>
+<p>The headers can be used to select specific data from the <code class="docutils literal notranslate">ArbinStep</code>.</p>
+<div class="code-wrapper" data-controller="code">
+<div class="code-header">
+<span class="code-lang">python</span></div>
+<div class="highlight"><pre><code><span class="c1"># Get step</span>
+<span class="n">step</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">cycles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_step</span><span class="p">(</span><span class="mi">10</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Get voltage data from the step</span>
+<span class="n">voltage</span> <span class="o">=</span> <span class="n">step</span><span class="p">[</span><span class="s1">'Voltage(V)'</span><span class="p">]</span>
+</code></pre></div></div>
+<p>The final option provided by <code class="docutils literal notranslate">ArbinStep</code> is to quickly plot data using the
+<a class="reference internal" href="api.html#primed_data_processing.arbin_cycler.ArbinStep.plot_step_column" title="primed_data_processing.arbin_cycler.ArbinStep.plot_step_column"><code class="xref py py-meth docutils literal notranslate">plot_step_column()</code></a> method. The plotting
+method plots a single feature in the step, such as voltage.</p>
+<div class="code-wrapper" data-controller="code">
+<div class="code-header">
+<span class="code-lang">python</span></div>
+<div class="highlight"><pre><code><span class="c1"># Get step</span>
+<span class="n">step</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">cycles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_step</span><span class="p">(</span><span class="mi">10</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Plot voltage</span>
+<span class="n">step</span><span class="o">.</span><span class="n">plot_step_column</span><span class="p">(</span><span class="s1">'Voltage(V)'</span><span class="p">)</span>
+</code></pre></div></div>
+</section>
+<section id="working-with-gamry-eis-data">
+<h3>Working With Gamry EIS Data<a aria-label="Click to copy this link" class="headerlink tooltipped tooltipped-ne" data-action="click-&gt;clipboard#copyHeaderLink" data-controller="clipboard" href="#working-with-gamry-eis-data">¶</a></h3>
+<p>Working with the Gamry EIS data is a bit different to the Arbin data. Because the EIS .DTA files don’t contain
+any information about where they came from in the test, i.e what cycle number or cell number, it’s up to the
+user to properly configure the data. To do so, we will use the <a class="reference internal" href="api.html#gamryapi"><span class="std std-ref">Gamry API documentation</span></a>.</p>
+<p>Like the Arbin data, we will use the provided example data on the
+<a class="reference external" href="https://github.com/seanbuchanan-eng/primed_data_processing" rel="nofollow noopener">GitHub repo<svg aria-hidden="true" class="external-link-icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path></svg></a>
+under test/eis_testing_data. To start, make the necessary imports.</p>
+<div class="code-wrapper" data-controller="code">
+<div class="code-header">
+<span class="code-lang">python</span></div>
+<div class="highlight"><pre><code><span class="kn">from</span> <span class="nn">primed_data_processing.gamry_eis</span> <span class="kn">import</span> <span class="n">EisSweep</span><span class="p">,</span> <span class="n">EisCycle</span><span class="p">,</span> <span class="n">EisCell</span>
+</code></pre></div></div>
+<p>Now we import the data using the <code class="docutils literal notranslate">EisSweep</code> method
+<a class="reference internal" href="api.html#primed_data_processing.gamry_eis.EisSweep.read_DTA_file" title="primed_data_processing.gamry_eis.EisSweep.read_DTA_file"><code class="xref py py-meth docutils literal notranslate">read_DTA_file()</code></a>.</p>
+<div class="code-wrapper" data-controller="code">
+<div class="code-header">
+<span class="code-lang">python</span></div>
+<div class="highlight"><pre><code><span class="n">path</span> <span class="o">=</span> <span class="s1">'path/to/B6T10V0_Chan001_Cycle001_Step014.DTA'</span>
+
+<span class="c1"># Make EisSweep object to store the data</span>
+<span class="c1"># from the Arbin data we know that eis steps happen at 50% soc</span>
+<span class="n">eis_sweep</span> <span class="o">=</span> <span class="n">EisSweep</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'eis cycle 1'</span><span class="p">,</span> <span class="n">soc</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">step_index</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="c1"># import the data</span>
+<span class="n">eis_sweep</span><span class="o">.</span><span class="n">read_DTA_file</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</code></pre></div></div>
+<p>As you can see, the EIS data filenames contain the channel and cycle that
+they came from. We will use this fact extensively when processing the data.
+Now we can put the sweep into cycle and cell objects. This step is obviously
+unnecessary for just a single <code class="docutils literal notranslate">EisSweep</code>, however, it is helpful to illustrate
+the process so that when a test has multiple EIS sweeps at different SOC’s in
+a single cycle they can be organized and easily indexed.</p>
+<div class="code-wrapper" data-controller="code">
+<div class="code-header">
+<span class="code-lang">python</span></div>
+<div class="highlight"><pre><code><span class="c1"># Make an EisCycle object</span>
+<span class="n">cycle</span> <span class="o">=</span> <span class="n">EisCycle</span><span class="p">(</span><span class="n">cycle_number</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sweeps</span><span class="o">=</span><span class="p">[</span><span class="n">eis_sweep</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">'cycle1'</span><span class="p">)</span>
+
+<span class="c1"># Make an EisCell object</span>
+<span class="n">cell</span> <span class="o">=</span> <span class="n">EisCell</span><span class="p">(</span><span class="n">cell_number</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">channel_number</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'cell1'</span><span class="p">,</span> <span class="n">eis_cycles</span><span class="o">=</span><span class="p">[</span><span class="n">cycle</span><span class="p">])</span>
+</code></pre></div></div>
+<p>We now see the same structure as the Arbin data start to form with the <code class="docutils literal notranslate">cell[cycle[step]]</code>
+type packaging.</p>
+<p>Now we can inspect the data similarly to Arbin data using
+<a class="reference internal" href="api.html#primed_data_processing.gamry_eis.EisSweep.get_data_as_array" title="primed_data_processing.gamry_eis.EisSweep.get_data_as_array"><code class="xref py py-meth docutils literal notranslate">get_data_as_array()</code></a> and
+<a class="reference internal" href="api.html#primed_data_processing.gamry_eis.EisSweep.get_data_as_dataframe" title="primed_data_processing.gamry_eis.EisSweep.get_data_as_dataframe"><code class="xref py py-meth docutils literal notranslate">get_data_as_dataframe()</code></a>.</p>
+<div class="code-wrapper" data-controller="code">
+<div class="code-header">
+<span class="code-lang">python</span></div>
+<div class="highlight"><pre><code><span class="n">cell</span><span class="o">.</span><span class="n">cycles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">sweeps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_data_as_dataframe</span><span class="p">()</span>
+<span class="n">cell</span><span class="o">.</span><span class="n">cycles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">sweeps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_data_as_array</span><span class="p">()</span>
+</code></pre></div></div>
+</section>
+<section id="merging-arbin-and-gamry-data">
+<h3>Merging Arbin and Gamry Data<a aria-label="Click to copy this link" class="headerlink tooltipped tooltipped-ne" data-action="click-&gt;clipboard#copyHeaderLink" data-controller="clipboard" href="#merging-arbin-and-gamry-data">¶</a></h3>
+<p>If you’ve been following along through the whole <cite>Quick start</cite> section, you
+may be thinking that accessing the EIS data with the Arbin data would be nice.
+Combining the data would allow for easy access of step temperatures, discharge
+capacities, etc. during the same cycle as the EIS.</p>
+<p>To support this functionality for the B6 dataset, the CellBuilder method
+<a class="reference internal" href="api.html#primed_data_processing.cellbuilder.CellBuilder.merge_B6_eis_data" title="primed_data_processing.cellbuilder.CellBuilder.merge_B6_eis_data"><code class="xref py py-meth docutils literal notranslate">merge_B6_eis_data()</code></a>
+merges the two data sets together. Once merged, the EisSweeps can be accessed
+from the corresponding <code class="docutils literal notranslate">ArbinStep</code> using
+<code class="xref py py-meth docutils literal notranslate">get_eis_step()</code>. For more
+details see the tutorial notebook on
+<a class="reference external" href="https://github.com/seanbuchanan-eng/primed_data_processing" rel="nofollow noopener">GitHub<svg aria-hidden="true" class="external-link-icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path></svg></a> and the
+documentation for <code class="docutils literal notranslate">merge_B6_eis_data()</code>.</p>
+<p>Although <code class="docutils literal notranslate">CellBuilder</code> provides helper methods for easy processing of data
+from previous tests at PRIMED, the ultimate intention of this package is to
+provide a framework for using the data. The actual processing of the data is
+largely meant to be left to the user. This is because every new test produces
+a new dataset with it’s own pitfalls and uniqueness that make it extremely hard
+to generalize the data processing.</p>
+<p>To help with this more complex data processing and importing, examples are shown
+in the next section <a class="reference internal" href="#advanceddataimporting"><span class="std std-ref">Advanced Data Importing</span></a>.</p>
+</section>
+</section>
+<section id="advanced-data-importing">
+<span id="advanceddataimporting"></span><h2>Advanced Data Importing<a aria-label="Click to copy this link" class="headerlink tooltipped tooltipped-ne" data-action="click-&gt;clipboard#copyHeaderLink" data-controller="clipboard" href="#advanced-data-importing">¶</a></h2>
+<p>This section expands on what was covered in the <a class="reference internal" href="#quickstart"><span class="std std-ref">Quick Start</span></a>
+section by importing full tests with multiple files. To try this example you will
+need access to the full B6T10V0 dataset
+( <a class="reference external" href="https://onlineacademiccommunity.uvic.ca/primed/" rel="nofollow noopener">contact<svg aria-hidden="true" class="external-link-icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path></svg></a> )
+and have it downloaded locally. Once the data is downloaded import the required packages.</p>
+<div class="code-wrapper" data-controller="code">
+<div class="code-header">
+<span class="code-lang">python</span></div>
+<div class="highlight"><pre><code><span class="kn">from</span> <span class="nn">primed_data_processing.cellbuilder</span> <span class="kn">import</span> <span class="n">CellBuilder</span>
+<span class="kn">from</span> <span class="nn">primed_data_processing.arbin_cycler</span> <span class="kn">import</span> <span class="n">ArbinCell</span><span class="p">,</span> <span class="n">ArbinCycle</span><span class="p">,</span> <span class="n">ArbinStep</span>
+<span class="kn">from</span> <span class="nn">primed_data_processing.gamry_eis</span> <span class="kn">import</span> <span class="n">EisSweep</span><span class="p">,</span> <span class="n">EisCycle</span><span class="p">,</span> <span class="n">EisCell</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+</code></pre></div></div>
+<p>Next, we will import the Arbin data using <code class="docutils literal notranslate">CellBuilder</code>. Make sure that the file structure
+hasn’t been changed since you downloaded it. As long as the file structure remains the
+same as when it was downloaded the test can be imported as below.</p>
+<div class="code-wrapper" data-controller="code">
+<div class="code-header">
+<span class="code-lang">python</span></div>
+<div class="highlight"><pre><code><span class="c1"># instantiate CellBuilder</span>
+<span class="n">cell_builder</span> <span class="o">=</span> <span class="n">CellBuilder</span><span class="p">()</span>
+
+<span class="n">raws_prepath</span> <span class="o">=</span> <span class="s1">'path/to/raws/'</span>
+
+<span class="c1"># all channel and cell numbers from B6 in order</span>
+<span class="n">channel_numbers</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">cell_numbers</span> <span class="o">=</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="c1"># list for holding processed cells</span>
+<span class="n">arbin_cells</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># loop over channel numbers</span>
+<span class="k">for</span> <span class="n">channel_idx</span><span class="p">,</span> <span class="n">channel</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">channel_numbers</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Processing channel </span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+
+    <span class="c1"># make subfolder name in raws folder</span>
+    <span class="n">folder_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'B6T10V0_1_2_3_4_9_10_11_12_13_14_15_16/Channel_</span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s1">/'</span>
+
+    <span class="c1"># append new cell to cells processed cells list</span>
+    <span class="n">arbin_cells</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ArbinCell</span><span class="p">(</span><span class="n">cell_numbers</span><span class="p">[</span><span class="n">channel_idx</span><span class="p">],</span> <span class="n">channel</span><span class="p">))</span>
+
+    <span class="c1"># get directory of the current folder</span>
+    <span class="n">directory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">fsencode</span><span class="p">(</span><span class="n">raws_prepath</span><span class="o">+</span><span class="n">folder_name</span><span class="p">)</span>
+
+    <span class="c1"># loop over all files in the current directory</span>
+    <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
+        <span class="c1"># get filename</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">fsdecode</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+        <span class="c1"># ignore .xlsx files</span>
+        <span class="k">if</span> <span class="n">filename</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">'.csv'</span><span class="p">):</span>
+            <span class="c1"># process file with CellBuilder method</span>
+            <span class="n">cell_builder</span><span class="o">.</span><span class="n">read_B6_csv_data</span><span class="p">(</span>
+                <span class="n">arbin_cells</span><span class="p">[</span><span class="n">channel_idx</span><span class="p">],</span> <span class="c1"># current cell being processed</span>
+                <span class="n">raws_prepath</span><span class="o">+</span><span class="n">folder_name</span><span class="o">+</span><span class="n">filename</span><span class="p">,</span> <span class="c1"># path to file being processed</span>
+                <span class="p">{</span><span class="s1">'characterization'</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">]},</span> <span class="c1"># steps to save</span>
+                <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span> <span class="c1"># minimal printouts</span>
+            <span class="p">)</span>
+</code></pre></div></div>
+<p>Next, import EIS data in a similar manner.</p>
+<div class="code-wrapper" data-controller="code">
+<div class="code-header">
+<span class="code-lang">python</span></div>
+<div class="highlight"><pre><code><span class="c1"># Load eis into objects</span>
+<span class="n">file_prepath</span> <span class="o">=</span> <span class="s1">'path/to/raws/B6T10V0_1_2_3_4_9_10_11_12_13_14_15_16/EIS/'</span>
+
+<span class="c1"># all channel and cell numbers from B6 in order</span>
+<span class="n">channel_numbers</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">cell_numbers</span> <span class="o">=</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="c1"># list for holding processed cells</span>
+<span class="n">eis_cells</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># loop over all channels in the batch</span>
+<span class="k">for</span> <span class="n">channel_idx</span><span class="p">,</span> <span class="n">channel</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">channel_numbers</span><span class="p">):</span>
+    <span class="c1"># initial cycle number</span>
+    <span class="n">cycle</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="c1"># list for storing processed cycles</span>
+    <span class="n">eis_cycles</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># loop until cycle number 23.</span>
+    <span class="k">while</span> <span class="n">cycle</span> <span class="o">&lt;=</span> <span class="mi">23</span><span class="p">:</span>
+
+        <span class="c1"># make a new EisSweep for every cycle (only 1 sweep per cycle in this case)</span>
+        <span class="n">eis_sweep</span> <span class="o">=</span> <span class="n">EisSweep</span><span class="p">(</span><span class="sa">f</span><span class="s1">'eis cycle</span><span class="si">{</span><span class="n">cycle</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>
+
+        <span class="c1"># handle different file and cycle combinations in the .DTA filename.</span>
+        <span class="k">if</span> <span class="n">cycle</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">channel</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="n">eis_sweep</span><span class="o">.</span><span class="n">read_DTA_file</span><span class="p">(</span><span class="n">file_prepath</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">'B6T10V0_Chan00</span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s1">_Cycle00</span><span class="si">{</span><span class="n">cycle</span><span class="si">}</span><span class="s1">_Step014.DTA'</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">cycle</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">channel</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+            <span class="n">eis_sweep</span><span class="o">.</span><span class="n">read_DTA_file</span><span class="p">(</span><span class="n">file_prepath</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">'B6T10V0_Chan0</span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s1">_Cycle00</span><span class="si">{</span><span class="n">cycle</span><span class="si">}</span><span class="s1">_Step014.DTA'</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">cycle</span> <span class="o">&lt;</span> <span class="mi">100</span> <span class="ow">and</span> <span class="n">channel</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="n">eis_sweep</span><span class="o">.</span><span class="n">read_DTA_file</span><span class="p">(</span><span class="n">file_prepath</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">'B6T10V0_Chan00</span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s1">_Cycle0</span><span class="si">{</span><span class="n">cycle</span><span class="si">}</span><span class="s1">_Step014.DTA'</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">cycle</span> <span class="o">&lt;</span> <span class="mi">100</span> <span class="ow">and</span> <span class="n">channel</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+            <span class="n">eis_sweep</span><span class="o">.</span><span class="n">read_DTA_file</span><span class="p">(</span><span class="n">file_prepath</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">'B6T10V0_Chan0</span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s1">_Cycle0</span><span class="si">{</span><span class="n">cycle</span><span class="si">}</span><span class="s1">_Step014.DTA'</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'Cycle number greater than 100!'</span><span class="p">)</span>
+
+        <span class="c1"># add a new EisCycle to the cycles list for every cycle</span>
+        <span class="n">eis_cycles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">EisCycle</span><span class="p">(</span><span class="n">cycle</span><span class="p">,</span> <span class="p">[</span><span class="n">eis_sweep</span><span class="p">],</span> <span class="sa">f</span><span class="s1">'cycle_object_</span><span class="si">{</span><span class="n">cycle</span><span class="si">}</span><span class="s1">'</span><span class="p">))</span>
+        <span class="n">cycle</span> <span class="o">+=</span> <span class="mi">2</span>
+
+
+    <span class="c1"># make the EisCell object with all of the processed data</span>
+    <span class="n">eis_cells</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">EisCell</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s1">'eis step for channel</span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span>
+        <span class="n">eis_cycles</span><span class="o">=</span><span class="n">eis_cycles</span><span class="p">,</span>
+        <span class="n">cell_number</span><span class="o">=</span><span class="n">cell_numbers</span><span class="p">[</span><span class="n">channel_idx</span><span class="p">],</span>
+        <span class="n">channel_number</span><span class="o">=</span><span class="n">channel</span><span class="p">)</span>
+        <span class="p">)</span>
+    <span class="c1"># reset the cycles list for the new cell.</span>
+    <span class="n">eis_cycles</span> <span class="o">=</span> <span class="p">[]</span>
+</code></pre></div></div>
+<p>Then we can merge the two datasets together,</p>
+<div class="code-wrapper" data-controller="code">
+<div class="code-header">
+<span class="code-lang">python</span></div>
+<div class="highlight"><pre><code><span class="n">cell_builder</span><span class="o">.</span><span class="n">merge_B6_eis_data</span><span class="p">(</span><span class="n">eis_cells</span><span class="p">,</span> <span class="n">arbin_cells</span><span class="p">)</span>
+</code></pre></div></div>
+<p>and inspect and consume the data using the <code class="docutils literal notranslate">ArbinCell</code> methods described in the
+<a class="reference internal" href="#quickstart"><span class="std std-ref">Quick Start</span></a> section.</p>
+<p>For more examples see
+<a class="reference external" href="https://github.com/seanbuchanan-eng/primed_data_processing/tree/main/examples" rel="nofollow noopener">examples<svg aria-hidden="true" class="external-link-icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path></svg></a>
+on GitHub.</p>
+</section>
+</section>
+</article>
+<footer>
+<div class="mt-20 mb-4 text-sm text-gray-700 print:mt-4">© 2023, Sean Buchanan Made with <a href="https://www.sphinx-doc.org">Sphinx 6.1.3</a></div>
+</footer></main>
+<button class="fixed bottom-0 right-0 z-20 opacity-0 p-4 m-4 tracking-wide bg-gray-900 text-gray-100 transition transform transform-gpu duration-500 translate-y-full" data-action="search#hideSnackbar" data-search-target="snackbar">
+  Clear highlights
+</button><div class="fixed hidden inset-0 bg-black bg-opacity-50" data-action="click-&gt;sidebar#close" data-sidebar-target="screen">
+</div>
+</div>
+<script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+<script src="_static/doctools.js"></script>
+<script src="_static/sphinx_highlight.js"></script>
+<script src="_static/theme.b62e1ded0c8c099a2d47.js"></script>
+</body>
+</html>
